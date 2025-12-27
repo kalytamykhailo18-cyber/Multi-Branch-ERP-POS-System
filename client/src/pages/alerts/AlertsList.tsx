@@ -56,12 +56,14 @@ const AlertsList: React.FC<AlertsListProps> = ({ alerts, onMarkAsRead, paginatio
     <div className="space-y-4">
       {alerts && alerts.length > 0 ? (
         <>
-          {alerts.map((alert) => {
+          {alerts.map((alert, index) => {
             const colors = getSeverityColors(alert.severity);
+            const animationClass = index % 4 === 0 ? 'animate-fade-right' : index % 4 === 1 ? 'animate-fade-left' : index % 4 === 2 ? 'animate-fade-up' : 'animate-zoom-in';
+            const durationClass = index % 3 === 0 ? 'duration-fast' : index % 3 === 1 ? 'duration-normal' : 'duration-light-slow';
             return (
               <div
                 key={alert.id}
-                className={`bg-white dark:bg-gray-800 rounded-sm shadow-md border-l-4 ${colors.border} ${alert.is_read ? 'opacity-75' : ''}`}
+                className={`bg-white dark:bg-gray-800 rounded-sm shadow-md border-l-4 ${colors.border} ${alert.is_read ? 'opacity-75' : ''} ${animationClass} ${durationClass}`}
               >
                 <div className="p-6">
                   <div className="flex flex-wrap items-center gap-2 mb-3">

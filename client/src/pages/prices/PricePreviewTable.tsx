@@ -87,9 +87,9 @@ export const PricePreviewTable: React.FC<PricePreviewTableProps> = ({
 
   return (
     <>
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="p-4 border-b border-gray-200 dark:border-gray-700 animate-fade-down duration-fast">
         <div className="flex items-center justify-between">
-          <div>
+          <div className="animate-fade-right duration-normal">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               2. Vista Previa
             </h2>
@@ -97,17 +97,17 @@ export const PricePreviewTable: React.FC<PricePreviewTableProps> = ({
               {preview.file_name} • {preview.total_rows} productos encontrados
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center gap-4 animate-fade-left duration-normal">
+            <div className="flex items-center gap-2 text-sm animate-zoom-in duration-fast">
               <span className="w-3 h-3 bg-green-500 rounded-full" />
               <span>{preview.matched_count} coincidencias</span>
             </div>
-            <div className="flex items-center gap-2 text-sm">
+            <div className="flex items-center gap-2 text-sm animate-zoom-in duration-normal">
               <span className="w-3 h-3 bg-gray-400 rounded-full" />
               <span>{preview.unmatched_count} sin coincidencia</span>
             </div>
             {preview.large_change_count || 0 > 0 && (
-              <div className="flex items-center gap-2 text-sm">
+              <div className="flex items-center gap-2 text-sm animate-zoom-in duration-light-slow">
                 <span className="w-3 h-3 bg-warning-500 rounded-full" />
                 <span>{preview.large_change_count || 0} cambios grandes</span>
               </div>
@@ -117,8 +117,8 @@ export const PricePreviewTable: React.FC<PricePreviewTableProps> = ({
       </div>
 
       {/* Action Bar */}
-      <div className="p-4 bg-gray-50 dark:bg-gray-800 flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="p-4 bg-gray-50 dark:bg-gray-800 flex items-center justify-between animate-fade-up duration-normal">
+        <div className="flex items-center gap-4 animate-fade-right duration-fast">
           <label className="flex items-center gap-2">
             <input
               type="checkbox"
@@ -132,7 +132,7 @@ export const PricePreviewTable: React.FC<PricePreviewTableProps> = ({
               Seleccionar todos los coincidentes
             </span>
           </label>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-500 animate-flip-down duration-normal">
             {selectedItems.size} seleccionados
           </span>
         </div>
@@ -140,25 +140,26 @@ export const PricePreviewTable: React.FC<PricePreviewTableProps> = ({
           variant="primary"
           onClick={onApply}
           disabled={selectedItems.size === 0}
+          className="animate-zoom-in duration-light-slow"
         >
           Aplicar Precios Seleccionados
         </Button>
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto animate-fade-up duration-light-slow">
         <table className="w-full">
-          <thead className="bg-gray-50 dark:bg-gray-800">
+          <thead className="bg-gray-50 dark:bg-gray-800 animate-fade-down duration-fast">
             <tr>
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase w-10"></th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Código</th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Descripción</th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Producto Coincidente</th>
-              <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Precio Actual</th>
-              <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Nuevo Costo</th>
-              <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Nuevo Precio</th>
-              <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Cambio</th>
-              <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Estado</th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase animate-fade-left duration-very-fast">Código</th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase animate-fade-left duration-fast">Descripción</th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase animate-fade-left duration-normal">Producto Coincidente</th>
+              <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase animate-fade-left duration-light-slow">Precio Actual</th>
+              <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase animate-fade-left duration-slow">Nuevo Costo</th>
+              <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase animate-fade-left duration-slow">Nuevo Precio</th>
+              <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase animate-fade-left duration-very-slow">Cambio</th>
+              <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase animate-fade-left duration-very-slow">Estado</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -174,9 +175,8 @@ export const PricePreviewTable: React.FC<PricePreviewTableProps> = ({
                   className={`
                     hover:bg-gray-50 dark:hover:bg-gray-800/50
                     ${selectedItems.has(index) ? 'bg-primary-50 dark:bg-primary-900/10' : ''}
-                    animate-slide-up
+                    animate-fade-up duration-normal
                   `}
-                  style={{ animationDelay: `${Math.min(index, 20) * 20}ms` }}
                 >
                   <td className="px-4 py-3">
                     <input

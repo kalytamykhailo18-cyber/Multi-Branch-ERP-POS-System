@@ -24,8 +24,8 @@ const BranchSalesChart: React.FC<BranchSalesChartProps> = ({ salesByBranch }) =>
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Ventas por Sucursal</h2>
-      <div className="overflow-x-auto">
+      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 animate-fade-right duration-fast">Ventas por Sucursal</h2>
+      <div className="overflow-x-auto animate-fade-up duration-normal">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
           <thead className="bg-gray-50 dark:bg-gray-700">
             <tr>

@@ -28,25 +28,29 @@ const SessionsPage: React.FC = () => {
 
   return (
     <div className="p-6 space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Cierres de Caja</h1>
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6 animate-fade-down duration-fast">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white animate-zoom-in duration-normal">Cierres de Caja</h1>
       </div>
 
-      <SessionFilters filters={filters} onFilterChange={handleFilterChange} />
+      <div className="animate-fade-right duration-normal">
+        <SessionFilters filters={filters} onFilterChange={handleFilterChange} />
+      </div>
 
       {loading ? (
-        <div className="flex items-center justify-center py-20">
-          <div className="text-lg text-gray-600 dark:text-gray-400">Cargando cierres...</div>
+        <div className="flex items-center justify-center py-20 animate-fade-up duration-fast">
+          <div className="text-lg text-gray-600 dark:text-gray-400 animate-zoom-in duration-normal">Cargando cierres...</div>
         </div>
       ) : error ? (
-        <div className="flex items-center justify-center py-20">
-          <div className="text-lg text-red-600 dark:text-red-400">Error: {error}</div>
+        <div className="flex items-center justify-center py-20 animate-fade-up duration-fast">
+          <div className="text-lg text-red-600 dark:text-red-400 animate-zoom-out duration-normal">Error: {error}</div>
         </div>
       ) : (
-        <SessionsList
-          sessions={sessions}
-          // onPageChange={handlePageChange}
-        />
+        <div className="animate-fade-up duration-light-slow">
+          <SessionsList
+            sessions={sessions}
+            // onPageChange={handlePageChange}
+          />
+        </div>
       )}
     </div>
   );

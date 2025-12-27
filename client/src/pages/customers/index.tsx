@@ -138,8 +138,8 @@ const CustomersPage: React.FC = () => {
     <>
       <div className="p-6 space-y-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 animate-fade-down duration-fast">
+          <div className="animate-fade-right duration-normal">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
               Clientes
             </h1>
@@ -163,7 +163,7 @@ const CustomersPage: React.FC = () => {
         </div>
 
         {/* Search */}
-        <Card className="p-4">
+        <Card className="p-4 animate-fade-up duration-normal">
           <Input
             placeholder="Buscar por nombre, email, teléfono o documento..."
             value={search}
@@ -180,7 +180,7 @@ const CustomersPage: React.FC = () => {
         </Card>
 
         {/* Customers Table */}
-        <Card className="overflow-hidden">
+        <Card className="overflow-hidden animate-fade-up duration-light-slow">
           <CustomersTable
             customers={customers}
             loading={loading}

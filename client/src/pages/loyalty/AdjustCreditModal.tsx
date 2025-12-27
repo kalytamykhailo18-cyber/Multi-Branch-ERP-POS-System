@@ -39,18 +39,18 @@ const AdjustCreditModal: React.FC<AdjustCreditModalProps> = ({
       size="sm"
     >
       <div className="space-y-4">
-        <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm text-center">
-          <p className="font-medium text-gray-900 dark:text-white">
+        <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm text-center animate-zoom-in duration-fast">
+          <p className="font-medium text-gray-900 dark:text-white animate-fade-down duration-very-fast">
             {`${customer.first_name || ''} ${customer.last_name || ''}`.trim()}
           </p>
-          <p className={`text-2xl font-bold mt-2 ${
+          <p className={`text-2xl font-bold mt-2 animate-flip-up duration-normal ${
             customer.credit_balance < 0 ? 'text-danger-500' : 'text-green-500'
           }`}>
             {formatCurrency(customer.credit_balance)}
           </p>
         </div>
 
-        <div>
+        <div className="animate-fade-left duration-fast">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Tipo de ajuste
           </label>
@@ -64,27 +64,31 @@ const AdjustCreditModal: React.FC<AdjustCreditModalProps> = ({
           </select>
         </div>
 
-        <Input
-          label="Monto"
-          type="number"
-          value={creditData.amount}
-          onChange={(e) => onDataChange({ ...creditData, amount: e.target.value })}
-          min="0.01"
-          step="0.01"
-        />
+        <div className="animate-fade-right duration-normal">
+          <Input
+            label="Monto"
+            type="number"
+            value={creditData.amount}
+            onChange={(e) => onDataChange({ ...creditData, amount: e.target.value })}
+            min="0.01"
+            step="0.01"
+          />
+        </div>
 
-        <Input
-          label="Razón"
-          value={creditData.reason}
-          onChange={(e) => onDataChange({ ...creditData, reason: e.target.value })}
-          placeholder="Motivo del ajuste..."
-        />
+        <div className="animate-fade-left duration-light-slow">
+          <Input
+            label="Razón"
+            value={creditData.reason}
+            onChange={(e) => onDataChange({ ...creditData, reason: e.target.value })}
+            placeholder="Motivo del ajuste..."
+          />
+        </div>
 
-        <div className="flex gap-3">
-          <Button variant="secondary" fullWidth onClick={onClose}>
+        <div className="flex gap-3 animate-fade-up duration-slow">
+          <Button variant="secondary" fullWidth onClick={onClose} className="animate-fade-left duration-fast">
             Cancelar
           </Button>
-          <Button variant="primary" fullWidth onClick={onSubmit} loading={loading}>
+          <Button variant="primary" fullWidth onClick={onSubmit} loading={loading} className="animate-fade-right duration-fast">
             Ajustar
           </Button>
         </div>

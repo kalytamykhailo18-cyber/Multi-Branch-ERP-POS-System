@@ -39,7 +39,7 @@ const CustomersGrid: React.FC<CustomersGridProps> = ({
   return (
     <>
       {/* Search */}
-      <Card className="p-4">
+      <Card className="p-4 animate-fade-down duration-fast">
         <Input
           placeholder="Buscar cliente por nombre, email o teléfono..."
           value={search}
@@ -54,29 +54,28 @@ const CustomersGrid: React.FC<CustomersGridProps> = ({
 
       {/* Customers Grid */}
       {loading ? (
-        <div className="flex justify-center py-12">
+        <div className="flex justify-center py-12 animate-fade-up duration-fast">
           <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" />
         </div>
       ) : filteredCustomers.length === 0 ? (
-        <Card className="p-12 text-center text-gray-500">
+        <Card className="p-12 text-center text-gray-500 animate-zoom-in duration-normal">
           <p>No hay clientes con programa de fidelidad</p>
         </Card>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-up duration-normal">
           {filteredCustomers.map((customer, index) => (
             <Card
               key={customer.id}
-              className="p-6 animate-slide-up"
-              style={{ animationDelay: `${index * 50}ms` }}
+              className={`p-6 ${index % 3 === 0 ? 'animate-fade-left' : index % 3 === 1 ? 'animate-fade-up' : 'animate-fade-right'} ${index < 3 ? 'duration-fast' : index < 6 ? 'duration-normal' : 'duration-light-slow'}`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center animate-zoom-in duration-normal">
                     <span className="text-primary-600 dark:text-primary-400 font-bold">
                       {`${customer.first_name?.[0] || ''}${customer.last_name?.[0] || ''}`.toUpperCase()}
                     </span>
                   </div>
-                  <div>
+                  <div className="animate-fade-right duration-fast">
                     <p className="font-semibold text-gray-900 dark:text-white">
                       {`${customer.first_name || ''} ${customer.last_name || ''}`.trim()}
                     </p>
@@ -87,7 +86,7 @@ const CustomersGrid: React.FC<CustomersGridProps> = ({
                 </div>
                 <button
                   onClick={() => onShowQR(customer)}
-                  className="p-2 text-gray-400 hover:text-primary-500"
+                  className="p-2 text-gray-400 hover:text-primary-500 animate-fade-left duration-fast"
                   title="Ver QR"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,13 +97,13 @@ const CustomersGrid: React.FC<CustomersGridProps> = ({
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="text-center p-3 bg-primary-50 dark:bg-primary-900/20 rounded-sm">
+                <div className="text-center p-3 bg-primary-50 dark:bg-primary-900/20 rounded-sm animate-flip-up duration-normal">
                   <p className="text-2xl font-bold text-primary-600 dark:text-primary-400">
                     {customer.loyalty_points.toLocaleString()}
                   </p>
                   <p className="text-xs text-gray-500">Puntos</p>
                 </div>
-                <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-sm">
+                <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-sm animate-flip-up duration-light-slow">
                   <p className={`text-2xl font-bold ${
                     customer.credit_balance < 0 ? 'text-danger-500' : 'text-green-600 dark:text-green-400'
                   }`}>
@@ -114,7 +113,7 @@ const CustomersGrid: React.FC<CustomersGridProps> = ({
                 </div>
               </div>
 
-              <div className="text-sm text-gray-500 mb-4">
+              <div className="text-sm text-gray-500 mb-4 animate-fade-up duration-normal">
                 <p className="flex items-center gap-2">
                   <span className={`px-2 py-1 rounded text-xs font-semibold ${
                     customer.loyalty_tier === 'PLATINUM' ? 'bg-purple-100 text-purple-700' :
@@ -128,12 +127,13 @@ const CustomersGrid: React.FC<CustomersGridProps> = ({
               </div>
 
               {/* Actions */}
-              <div className="flex gap-2">
+              <div className="flex gap-2 animate-fade-up duration-light-slow">
                 <Button
                   variant="secondary"
                   size="sm"
                   fullWidth
                   onClick={() => onAdjustPoints(customer)}
+                  className="animate-fade-left duration-fast"
                 >
                   Ajustar Puntos
                 </Button>
@@ -142,6 +142,7 @@ const CustomersGrid: React.FC<CustomersGridProps> = ({
                   size="sm"
                   fullWidth
                   onClick={() => onAdjustCredit(customer)}
+                  className="animate-fade-right duration-fast"
                 >
                   Ajustar Crédito
                 </Button>

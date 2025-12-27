@@ -137,12 +137,12 @@ const ProductsPage: React.FC = () => {
     <>
       <div className="p-6 space-y-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 animate-fade-down duration-fast">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white animate-fade-right duration-normal">
               Productos
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-gray-500 dark:text-gray-400 mt-1 animate-fade-right duration-light-slow">
               Gestiona el catálogo de productos
             </p>
           </div>
@@ -150,6 +150,7 @@ const ProductsPage: React.FC = () => {
           <Button
             variant="primary"
             onClick={handleCreate}
+            className="animate-zoom-in duration-normal"
             icon={
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -162,9 +163,9 @@ const ProductsPage: React.FC = () => {
         </div>
 
         {/* Filters */}
-        <Card className="p-4">
+        <Card className="p-4 animate-fade-up duration-normal">
           <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex-1">
+            <div className="flex-1 animate-fade-left duration-fast">
               <Input
                 placeholder="Buscar por nombre, SKU o código..."
                 value={search}
@@ -185,7 +186,7 @@ const ProductsPage: React.FC = () => {
                 setSelectedCategory(e.target.value);
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent animate-fade-right duration-fast"
             >
               <option value="">Todas las categorías</option>
               {categories.map((cat) => (
@@ -198,7 +199,7 @@ const ProductsPage: React.FC = () => {
         </Card>
 
         {/* Products Table */}
-        <Card className="overflow-hidden">
+        <Card className="overflow-hidden animate-fade-up duration-light-slow">
           <ProductsTable
             products={products}
             loading={loading}
@@ -209,11 +210,11 @@ const ProductsPage: React.FC = () => {
 
           {/* Pagination */}
           {!loading && products.length > 0 && totalProducts > limit && (
-            <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+            <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between animate-fade-up duration-normal">
+              <p className="text-sm text-gray-500 dark:text-gray-400 animate-fade-right duration-fast">
                 Mostrando {((currentPage - 1) * limit) + 1} a {Math.min(currentPage * limit, totalProducts)} de {totalProducts}
               </p>
-              <div className="flex gap-2">
+              <div className="flex gap-2 animate-fade-left duration-fast">
                 <Button
                   variant="secondary"
                   size="sm"

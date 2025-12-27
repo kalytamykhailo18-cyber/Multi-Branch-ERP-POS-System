@@ -36,10 +36,10 @@ const UserSettings: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <section className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Información Personal</h2>
+      <section className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6 animate-fade-down duration-normal">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-right duration-fast">Información Personal</h2>
         <form onSubmit={handleSubmitProfile} className="space-y-4">
-          <div className="flex flex-col">
+          <div className="flex flex-col animate-fade-left duration-normal">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nombre:</label>
             <input
               type="text"
@@ -49,7 +49,7 @@ const UserSettings: React.FC = () => {
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col animate-fade-right duration-light-slow">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Apellido:</label>
             <input
               type="text"
@@ -59,7 +59,7 @@ const UserSettings: React.FC = () => {
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col animate-fade-up duration-normal">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email:</label>
             <input
               type="email"
@@ -71,17 +71,17 @@ const UserSettings: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="px-6 py-3 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium"
+            className="px-6 py-3 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium animate-zoom-in duration-fast"
           >
             Guardar Cambios
           </button>
         </form>
       </section>
 
-      <section className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Cambiar Contraseña</h2>
+      <section className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6 animate-fade-up duration-light-slow">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-left duration-fast">Cambiar Contraseña</h2>
         <form onSubmit={handleSubmitPassword} className="space-y-4">
-          <div className="flex flex-col">
+          <div className="flex flex-col animate-fade-right duration-normal">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Contraseña Actual:</label>
             <input
               type="password"
@@ -91,7 +91,7 @@ const UserSettings: React.FC = () => {
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col animate-fade-down duration-light-slow">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nueva Contraseña:</label>
             <input
               type="password"
@@ -101,7 +101,7 @@ const UserSettings: React.FC = () => {
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col animate-fade-left duration-normal">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Confirmar Nueva Contraseña:</label>
             <input
               type="password"
@@ -113,7 +113,7 @@ const UserSettings: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="px-6 py-3 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium"
+            className="px-6 py-3 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium animate-flip-up duration-normal"
           >
             Cambiar Contraseña
           </button>

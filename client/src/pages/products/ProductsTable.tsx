@@ -39,7 +39,7 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
 
   if (loading) {
     return (
-      <div className="flex justify-center py-12">
+      <div className="flex justify-center py-12 animate-zoom-in duration-fast">
         <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" />
       </div>
     );
@@ -47,12 +47,12 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
 
   if (products.length === 0) {
     return (
-      <div className="text-center py-12 text-gray-500 dark:text-gray-400">
-        <svg className="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="text-center py-12 text-gray-500 dark:text-gray-400 animate-fade-up duration-normal">
+        <svg className="w-12 h-12 mx-auto mb-4 opacity-50 animate-zoom-in duration-fast" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
         </svg>
-        <p>No hay productos</p>
-        <Button variant="primary" className="mt-4" onClick={onCreate}>
+        <p className="animate-fade-up duration-light-slow">No hay productos</p>
+        <Button variant="primary" className="mt-4 animate-zoom-in duration-slow" onClick={onCreate}>
           Crear primer producto
         </Button>
       </div>
@@ -60,42 +60,43 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
   }
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto animate-fade-up duration-normal">
       <table className="w-full">
-        <thead className="bg-gray-50 dark:bg-gray-800">
+        <thead className="bg-gray-50 dark:bg-gray-800 animate-fade-down duration-fast">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider animate-fade-right duration-very-fast">
               Producto
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider animate-fade-right duration-fast">
               Categoría
             </th>
-            <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider animate-fade-right duration-normal">
               Costo
             </th>
-            <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider animate-fade-right duration-light-slow">
               Precio
             </th>
-            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider animate-fade-left duration-light-slow">
               Stock
             </th>
-            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider animate-fade-left duration-normal">
               Estado
             </th>
-            <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider animate-fade-left duration-fast">
               Acciones
             </th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <tr
               key={product.id}
-              className="hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className={`hover:bg-gray-50 dark:hover:bg-gray-800/50 animate-fade-up duration-normal`}
+              style={{ animationDelay: `${index * 50}ms` }}
             >
               <td className="px-6 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-sm flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-sm flex items-center justify-center animate-zoom-in duration-fast">
                     {product.image_url ? (
                       <img
                         src={product.image_url}
@@ -109,35 +110,35 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
                     )}
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 dark:text-white">
+                    <p className="font-medium text-gray-900 dark:text-white animate-fade-right duration-fast">
                       {product.name}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 animate-fade-right duration-normal">
                       SKU: {product.sku || 'N/A'}
                     </p>
                   </div>
                 </div>
               </td>
               <td className="px-6 py-4">
-                <span className="text-sm text-gray-600 dark:text-gray-300">
+                <span className="text-sm text-gray-600 dark:text-gray-300 animate-fade-up duration-fast">
                   {product.category?.name || '-'}
                 </span>
               </td>
               <td className="px-6 py-4 text-right">
-                <span className="text-sm text-gray-600 dark:text-gray-300">
+                <span className="text-sm text-gray-600 dark:text-gray-300 animate-flip-up duration-normal">
                   {formatCurrency(Number(product.cost_price || 0))}
                 </span>
               </td>
               <td className="px-6 py-4 text-right">
-                <span className="text-sm font-medium text-gray-900 dark:text-white">
+                <span className="text-sm font-medium text-gray-900 dark:text-white animate-flip-up duration-light-slow">
                   {formatCurrency(Number(product.selling_price || 0))}
                 </span>
               </td>
-              <td className="px-6 py-4 text-center">
+              <td className="px-6 py-4 text-center animate-zoom-in duration-normal">
                 {getStockStatus(product)}
               </td>
               <td className="px-6 py-4 text-center">
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium animate-zoom-in duration-light-slow ${
                   product.is_active
                     ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
                     : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
@@ -146,10 +147,10 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
                 </span>
               </td>
               <td className="px-6 py-4 text-right">
-                <div className="flex justify-end gap-2">
+                <div className="flex justify-end gap-2 animate-fade-left duration-fast">
                   <button
                     onClick={() => onEdit(product)}
-                    className="p-2 text-gray-400 hover:text-primary-500"
+                    className="p-2 text-gray-400 hover:text-primary-500 animate-zoom-in duration-very-fast"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -157,7 +158,7 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
                   </button>
                   <button
                     onClick={() => onDelete(product.id)}
-                    className="p-2 text-gray-400 hover:text-danger-500"
+                    className="p-2 text-gray-400 hover:text-danger-500 animate-zoom-in duration-fast"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />

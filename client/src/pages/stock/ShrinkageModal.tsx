@@ -39,7 +39,7 @@ const ShrinkageModal: React.FC<ShrinkageModalProps> = ({
       size="sm"
     >
       <div className="space-y-4">
-        <div className="p-4 bg-warning-50 dark:bg-warning-900/20 rounded-sm">
+        <div className="p-4 bg-warning-50 dark:bg-warning-900/20 rounded-sm animate-flip-down duration-fast">
           <p className="text-sm text-warning-800 dark:text-warning-300">
             Registra la merma de productos por pérdida de peso, polvo o porcionado.
             Este ajuste es rápido y no requiere aprobación.
@@ -47,7 +47,7 @@ const ShrinkageModal: React.FC<ShrinkageModalProps> = ({
         </div>
 
         {selectedItem ? (
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm">
+          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm animate-fade-right duration-normal">
             <p className="font-medium text-gray-900 dark:text-white">
               {selectedItem.product_name}
             </p>
@@ -57,21 +57,25 @@ const ShrinkageModal: React.FC<ShrinkageModalProps> = ({
             </p>
           </div>
         ) : (
-          <Input
-            label="Buscar producto"
-            placeholder="Nombre o SKU..."
-          />
+          <div className="animate-fade-right duration-normal">
+            <Input
+              label="Buscar producto"
+              placeholder="Nombre o SKU..."
+            />
+          </div>
         )}
 
-        <Input
-          label="Cantidad perdida"
-          type="number"
-          value={adjustmentData.quantity}
-          onChange={(e) => onDataChange({ ...adjustmentData, quantity: e.target.value })}
-          placeholder="Ej: 0.5"
-        />
+        <div className="animate-fade-up duration-normal">
+          <Input
+            label="Cantidad perdida"
+            type="number"
+            value={adjustmentData.quantity}
+            onChange={(e) => onDataChange({ ...adjustmentData, quantity: e.target.value })}
+            placeholder="Ej: 0.5"
+          />
+        </div>
 
-        <div>
+        <div className="animate-fade-up duration-light-slow">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Razón (opcional)
           </label>
@@ -89,7 +93,7 @@ const ShrinkageModal: React.FC<ShrinkageModalProps> = ({
           </select>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-3 animate-fade-up duration-slow">
           <Button variant="secondary" fullWidth onClick={onClose}>
             Cancelar
           </Button>

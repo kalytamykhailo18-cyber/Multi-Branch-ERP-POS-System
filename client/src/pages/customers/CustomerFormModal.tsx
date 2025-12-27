@@ -43,7 +43,7 @@ export const CustomerFormModal: React.FC<CustomerFormModalProps> = ({
       title={editingCustomer ? 'Editar Cliente' : 'Nuevo Cliente'}
       size="lg"
     >
-      <form onSubmit={onSubmit} className="space-y-6">
+      <form onSubmit={onSubmit} className="space-y-6 animate-fade-up duration-normal">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input
             label="Nombre *"

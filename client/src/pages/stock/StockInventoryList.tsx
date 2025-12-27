@@ -39,9 +39,9 @@ const StockInventoryList: React.FC<StockInventoryListProps> = ({
   return (
     <>
       {/* Filters */}
-      <Card className="p-4">
+      <Card className="p-4 animate-fade-down duration-fast">
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1">
+          <div className="flex-1 animate-fade-right duration-normal">
             <Input
               placeholder="Buscar producto..."
               value={search}
@@ -53,7 +53,7 @@ const StockInventoryList: React.FC<StockInventoryListProps> = ({
               }
             />
           </div>
-          <label className="flex items-center gap-2">
+          <label className="flex items-center gap-2 animate-fade-left duration-normal">
             <input
               type="checkbox"
               checked={showLowStock}
@@ -68,19 +68,19 @@ const StockInventoryList: React.FC<StockInventoryListProps> = ({
       </Card>
 
       {/* Stock Table */}
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden animate-fade-up duration-normal">
         {loading ? (
           <div className="flex justify-center py-12">
             <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" />
           </div>
         ) : filteredStock.length === 0 ? (
-          <div className="text-center py-12 text-gray-500">
+          <div className="text-center py-12 text-gray-500 animate-zoom-in duration-normal">
             <p>No hay productos en el inventario</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-800">
+              <thead className="bg-gray-50 dark:bg-gray-800 animate-fade-down duration-fast">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Producto</th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">Stock Actual</th>
@@ -91,11 +91,10 @@ const StockInventoryList: React.FC<StockInventoryListProps> = ({
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                {filteredStock.map((item, index) => (
+                {filteredStock.map((item) => (
                   <tr
                     key={item.id}
-                    className="hover:bg-gray-50 dark:hover:bg-gray-800/50 animate-slide-up"
-                    style={{ animationDelay: `${index * 30}ms` }}
+                    className="hover:bg-gray-50 dark:hover:bg-gray-800/50 animate-fade-up duration-fast"
                   >
                     <td className="px-6 py-4">
                       <div>
@@ -138,7 +137,7 @@ const StockInventoryList: React.FC<StockInventoryListProps> = ({
                       <div className="flex justify-end gap-2">
                         <button
                           onClick={() => onAdjust(item)}
-                          className="p-2 text-gray-400 hover:text-primary-500"
+                          className="p-2 text-gray-400 hover:text-primary-500 animate-fade-left duration-very-fast"
                           title="Ajustar stock"
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,7 +146,7 @@ const StockInventoryList: React.FC<StockInventoryListProps> = ({
                         </button>
                         <button
                           onClick={() => onShrinkage(item)}
-                          className="p-2 text-gray-400 hover:text-warning-500"
+                          className="p-2 text-gray-400 hover:text-warning-500 animate-fade-left duration-fast"
                           title="Registrar merma"
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

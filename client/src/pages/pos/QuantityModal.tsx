@@ -31,26 +31,28 @@ const QuantityModal: React.FC<QuantityModalProps> = ({
       size="sm"
     >
       <div className="space-y-4">
-        <div className="text-center">
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+        <div className="text-center animate-fade-down duration-fast">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white animate-zoom-in duration-normal">
             {product.name}
           </h3>
-          <p className="text-2xl font-bold text-primary-600 dark:text-primary-400 mt-2">
+          <p className="text-2xl font-bold text-primary-600 dark:text-primary-400 mt-2 animate-fade-up duration-light-slow">
             {formatCurrency(Number(product.selling_price))}
           </p>
         </div>
 
-        <Input
-          label="Cantidad"
-          type="number"
-          min="0.01"
-          step="0.01"
-          value={quantity}
-          onChange={(e) => onQuantityChange(e.target.value)}
-          autoFocus
-        />
+        <div className="animate-fade-up duration-normal">
+          <Input
+            label="Cantidad"
+            type="number"
+            min="0.01"
+            step="0.01"
+            value={quantity}
+            onChange={(e) => onQuantityChange(e.target.value)}
+            autoFocus
+          />
+        </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-3 animate-fade-up duration-slow">
           <Button
             variant="secondary"
             fullWidth

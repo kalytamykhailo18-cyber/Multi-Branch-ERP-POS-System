@@ -36,19 +36,19 @@ const StockMovementsList: React.FC<StockMovementsListProps> = ({ movements, load
   };
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden animate-zoom-in duration-normal">
       {loading ? (
         <div className="flex justify-center py-12">
           <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" />
         </div>
       ) : movements.length === 0 ? (
-        <div className="text-center py-12 text-gray-500">
+        <div className="text-center py-12 text-gray-500 animate-fade-up duration-normal">
           <p>No hay movimientos registrados</p>
         </div>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 dark:bg-gray-800">
+            <thead className="bg-gray-50 dark:bg-gray-800 animate-fade-down duration-fast">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Fecha</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Producto</th>
@@ -60,13 +60,12 @@ const StockMovementsList: React.FC<StockMovementsListProps> = ({ movements, load
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-              {movements.map((mov, index) => {
+              {movements.map((mov) => {
                 const style = getMovementStyle(mov.movement_type);
                 return (
                   <tr
                     key={mov.id}
-                    className="hover:bg-gray-50 dark:hover:bg-gray-800/50 animate-slide-up"
-                    style={{ animationDelay: `${index * 30}ms` }}
+                    className="hover:bg-gray-50 dark:hover:bg-gray-800/50 animate-fade-up duration-fast"
                   >
                     <td className="px-6 py-4 text-sm text-gray-500">
                       {formatDateTime(mov.created_at)}

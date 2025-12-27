@@ -35,18 +35,18 @@ const CartSection: React.FC<CartSectionProps> = ({
   formatCurrency,
 }) => {
   return (
-    <div className="w-96 bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 flex flex-col">
+    <div className="w-96 bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 flex flex-col animate-fade-left duration-normal">
       {/* Customer Section */}
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="p-4 border-b border-gray-200 dark:border-gray-700 animate-fade-down duration-fast">
         {customer ? (
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between animate-zoom-in duration-fast">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center animate-flip-down duration-normal">
                 <span className="text-primary-600 dark:text-primary-400 font-semibold text-sm">
                   {customer.first_name?.[0]}{customer.last_name?.[0]}
                 </span>
               </div>
-              <div>
+              <div className="animate-fade-right duration-normal">
                 <p className="font-medium text-gray-900 dark:text-white">
                   {customer.first_name} {customer.last_name}
                 </p>
@@ -59,7 +59,7 @@ const CartSection: React.FC<CartSectionProps> = ({
             </div>
             <button
               onClick={onRemoveCustomer}
-              className="p-2 text-gray-400 hover:text-danger-500"
+              className="p-2 text-gray-400 hover:text-danger-500 animate-fade-left duration-light-slow"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -69,7 +69,7 @@ const CartSection: React.FC<CartSectionProps> = ({
         ) : (
           <button
             onClick={onAddCustomer}
-            className="w-full flex items-center gap-3 px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-sm hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors"
+            className="w-full flex items-center gap-3 px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-sm hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors animate-fade-up duration-normal"
           >
             <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -82,19 +82,19 @@ const CartSection: React.FC<CartSectionProps> = ({
       {/* Cart Items */}
       <div className="flex-1 overflow-y-auto p-4">
         {cart.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-gray-500">
-            <svg className="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="flex flex-col items-center justify-center h-full text-gray-500 animate-fade-up duration-normal">
+            <svg className="w-16 h-16 mb-4 opacity-50 animate-zoom-in duration-light-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
-            <p>Carrito vacío</p>
-            <p className="text-sm">Agrega productos para comenzar</p>
+            <p className="animate-fade-up duration-slow">Carrito vacío</p>
+            <p className="text-sm animate-fade-up duration-very-slow">Agrega productos para comenzar</p>
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-3 animate-fade-up duration-fast">
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-sm"
+                className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-sm animate-fade-right duration-normal"
               >
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-gray-900 dark:text-white truncate">
@@ -149,31 +149,31 @@ const CartSection: React.FC<CartSectionProps> = ({
       </div>
 
       {/* Totals and Actions */}
-      <div className="p-4 border-t border-gray-200 dark:border-gray-700 space-y-4">
+      <div className="p-4 border-t border-gray-200 dark:border-gray-700 space-y-4 animate-fade-up duration-normal">
         {/* Totals */}
         <div className="space-y-2">
-          <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 animate-fade-right duration-fast">
             <span>Subtotal</span>
             <span>{formatCurrency(totals.subtotal)}</span>
           </div>
           {totals.discount > 0 && (
-            <div className="flex justify-between text-sm text-green-500">
+            <div className="flex justify-between text-sm text-green-500 animate-fade-right duration-normal">
               <span>Descuento</span>
               <span>-{formatCurrency(totals.discount)}</span>
             </div>
           )}
-          <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 animate-fade-right duration-light-slow">
             <span>IVA</span>
             <span>{formatCurrency(totals.tax)}</span>
           </div>
-          <div className="flex justify-between text-xl font-bold text-gray-900 dark:text-white pt-2 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex justify-between text-xl font-bold text-gray-900 dark:text-white pt-2 border-t border-gray-200 dark:border-gray-700 animate-fade-up duration-slow">
             <span>Total</span>
             <span>{formatCurrency(totals.total)}</span>
           </div>
         </div>
 
         {/* Actions */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3 animate-zoom-in duration-normal">
           <Button
             variant="secondary"
             onClick={onClearCart}

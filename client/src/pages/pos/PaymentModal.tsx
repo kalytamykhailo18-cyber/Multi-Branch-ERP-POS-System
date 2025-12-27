@@ -48,18 +48,18 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
     >
       <div className="grid grid-cols-2 gap-6">
         {/* Left - Payment Methods */}
-        <div className="space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-white">
+        <div className="space-y-4 animate-fade-right duration-normal">
+          <h3 className="font-medium text-gray-900 dark:text-white animate-fade-down duration-fast">
             Método de Pago
           </h3>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 animate-fade-up duration-normal">
             {['CASH', 'DEBIT', 'CREDIT', 'TRANSFER', 'QR'].map((method) => (
               <button
                 key={method}
                 onClick={() => onMethodChange(method)}
                 className={`
-                  p-4 rounded-sm border-2 text-center transition-all
+                  p-4 rounded-sm border-2 text-center transition-all animate-zoom-in duration-fast
                   ${selectedMethod === method
                     ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
                     : 'border-gray-200 dark:border-gray-700 hover:border-primary-300'}
@@ -81,7 +81,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
           </div>
 
           {selectedMethod === 'CASH' && (
-            <div className="space-y-3">
+            <div className="space-y-3 animate-fade-up duration-light-slow">
               <Input
                 label="Efectivo recibido"
                 type="number"
@@ -96,7 +96,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                   <button
                     key={amount}
                     onClick={() => onCashReceivedChange(String(amount))}
-                    className="py-2 text-sm bg-gray-100 dark:bg-gray-700 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-600"
+                    className="py-2 text-sm bg-gray-100 dark:bg-gray-700 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-600 animate-zoom-in duration-fast"
                   >
                     {formatCurrency(amount)}
                   </button>
@@ -110,24 +110,25 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
             fullWidth
             onClick={onAddPayment}
             disabled={remainingAmount <= 0}
+            className="animate-fade-up duration-slow"
           >
             Agregar Pago
           </Button>
         </div>
 
         {/* Right - Summary */}
-        <div className="space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-white">
+        <div className="space-y-4 animate-fade-left duration-normal">
+          <h3 className="font-medium text-gray-900 dark:text-white animate-fade-down duration-fast">
             Resumen
           </h3>
 
           {/* Payments list */}
           {payments.length > 0 && (
-            <div className="space-y-2">
+            <div className="space-y-2 animate-fade-up duration-normal">
               {payments.map((payment, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-sm"
+                  className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-sm animate-fade-right duration-fast"
                 >
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">
@@ -140,7 +141,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                     </span>
                     <button
                       onClick={() => onRemovePayment(index)}
-                      className="p-1 text-gray-400 hover:text-danger-500"
+                      className="p-1 text-gray-400 hover:text-danger-500 animate-zoom-in duration-normal"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -153,21 +154,21 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
           )}
 
           {/* Totals */}
-          <div className="space-y-2 pt-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex justify-between text-lg">
+          <div className="space-y-2 pt-4 border-t border-gray-200 dark:border-gray-700 animate-fade-up duration-light-slow">
+            <div className="flex justify-between text-lg animate-fade-right duration-fast">
               <span className="text-gray-500 dark:text-gray-400">Total a cobrar</span>
               <span className="font-bold text-gray-900 dark:text-white">
                 {formatCurrency(total)}
               </span>
             </div>
-            <div className="flex justify-between text-lg">
+            <div className="flex justify-between text-lg animate-fade-right duration-normal">
               <span className="text-gray-500 dark:text-gray-400">Pagado</span>
               <span className="font-bold text-green-500">
                 {formatCurrency(totalPaid)}
               </span>
             </div>
             {remainingAmount > 0 && (
-              <div className="flex justify-between text-lg">
+              <div className="flex justify-between text-lg animate-fade-right duration-light-slow">
                 <span className="text-gray-500 dark:text-gray-400">Restante</span>
                 <span className="font-bold text-danger-500">
                   {formatCurrency(remainingAmount)}
@@ -175,7 +176,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
               </div>
             )}
             {change > 0 && (
-              <div className="flex justify-between text-2xl pt-2 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex justify-between text-2xl pt-2 border-t border-gray-200 dark:border-gray-700 animate-zoom-in duration-slow">
                 <span className="text-gray-900 dark:text-white">Cambio</span>
                 <span className="font-bold text-primary-500">
                   {formatCurrency(change)}
@@ -191,6 +192,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
             onClick={onCompleteSale}
             disabled={remainingAmount > 0 || processing}
             loading={processing}
+            className="animate-fade-up duration-very-slow"
           >
             Completar Venta
           </Button>

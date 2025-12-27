@@ -125,10 +125,10 @@ const PINLoginPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-500 to-primary-700 p-4">
-      <div className="w-full max-w-sm animate-slide-up">
+      <div className="w-full max-w-sm animate-fade-up duration-normal">
         <Card className="p-8">
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 animate-zoom-in duration-fast">
             <div className="w-16 h-16 bg-primary-500 rounded-sm mx-auto mb-4 flex items-center justify-center">
               <svg
                 className="w-10 h-10 text-white"
@@ -189,7 +189,7 @@ const PINLoginPage: React.FC = () => {
           </div>
 
           {/* Numpad */}
-          <div className="grid grid-cols-3 gap-3 mb-6">
+          <div className="grid grid-cols-3 gap-3 mb-6 animate-fade-up duration-light-slow">
             {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((num) => (
               <button
                 key={num}

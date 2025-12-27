@@ -47,10 +47,10 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-500 to-primary-700 p-4">
-      <div className="w-full max-w-md animate-slide-up">
+      <div className="w-full max-w-md animate-fade-up duration-normal">
         <Card className="p-8">
           {/* Logo and Title */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 animate-zoom-in duration-fast">
             <div className="w-16 h-16 bg-primary-500 rounded-sm mx-auto mb-4 flex items-center justify-center">
               <svg
                 className="w-10 h-10 text-white"
@@ -76,13 +76,13 @@ const LoginPage: React.FC = () => {
 
           {/* Error Message */}
           {error && (
-            <div className="mb-6 p-4 bg-danger-50 dark:bg-danger-900/20 border border-danger-200 dark:border-danger-800 rounded-sm">
+            <div className="mb-6 p-4 bg-danger-50 dark:bg-danger-900/20 border border-danger-200 dark:border-danger-800 rounded-sm animate-fade-down duration-fast">
               <p className="text-sm text-danger-600 dark:text-danger-400">{error}</p>
             </div>
           )}
 
           {/* Login Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 animate-fade-up duration-normal">
             <Input
               label="Correo electrónico"
               type="email"

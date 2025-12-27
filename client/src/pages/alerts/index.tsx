@@ -43,38 +43,42 @@ const AlertsPage: React.FC = () => {
 
   return (
     <div className="p-6 space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6 animate-fade-down duration-fast">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Alertas</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white animate-fade-right duration-normal">Alertas</h1>
             <UnreadBadge count={unreadCount?.total || 0} />
           </div>
           <button
             onClick={handleMarkAllAsRead}
-            className="px-4 py-2 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium"
+            className="px-4 py-2 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium animate-fade-left duration-normal"
           >
             Marcar Todas como Leídas
           </button>
         </div>
       </div>
 
-      <AlertFilters filters={filters} onFilterChange={handleFilterChange} />
+      <div className="animate-fade-up duration-normal">
+        <AlertFilters filters={filters} onFilterChange={handleFilterChange} />
+      </div>
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <div className="text-lg text-gray-600 dark:text-gray-400">Cargando alertas...</div>
+          <div className="text-lg text-gray-600 dark:text-gray-400 animate-fade-up duration-fast">Cargando alertas...</div>
         </div>
       ) : error ? (
         <div className="flex items-center justify-center py-20">
-          <div className="text-lg text-red-600 dark:text-red-400">Error: {error}</div>
+          <div className="text-lg text-red-600 dark:text-red-400 animate-zoom-in duration-fast">Error: {error}</div>
         </div>
       ) : (
-        <AlertsList
-          alerts={alerts}
-          onMarkAsRead={handleMarkAsRead}
-          pagination={pagination}
-          onPageChange={handlePageChange}
-        />
+        <div className="animate-fade-up duration-light-slow">
+          <AlertsList
+            alerts={alerts}
+            onMarkAsRead={handleMarkAsRead}
+            pagination={pagination}
+            onPageChange={handlePageChange}
+          />
+        </div>
       )}
     </div>
   );

@@ -16,13 +16,13 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
   loading,
 }) => {
   return (
-    <Card className="p-6">
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
+    <Card className="p-6 animate-fade-up duration-normal">
+      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 animate-fade-down duration-fast">
         Configuración del Programa
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
-        <div>
+        <div className="animate-fade-right duration-fast">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Puntos por cada $1 de compra
           </label>
@@ -37,7 +37,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
           </p>
         </div>
 
-        <div>
+        <div className="animate-fade-left duration-fast">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Valor de cada punto en pesos (redención)
           </label>
@@ -53,7 +53,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
           </p>
         </div>
 
-        <div>
+        <div className="animate-fade-right duration-normal">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Mínimo de puntos para canjear
           </label>
@@ -65,7 +65,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
           />
         </div>
 
-        <div>
+        <div className="animate-fade-left duration-normal">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Días hasta expiración de puntos
           </label>
@@ -80,7 +80,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
           </p>
         </div>
 
-        <div>
+        <div className="animate-fade-right duration-light-slow">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Días hasta expiración de crédito
           </label>
@@ -95,12 +95,12 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
           </p>
         </div>
 
-        <div className="md:col-span-2 pt-4 border-t border-gray-200 dark:border-gray-700">
-          <h3 className="font-medium text-gray-900 dark:text-white mb-4">
+        <div className="md:col-span-2 pt-4 border-t border-gray-200 dark:border-gray-700 animate-flip-up duration-slow">
+          <h3 className="font-medium text-gray-900 dark:text-white mb-4 animate-fade-up duration-fast">
             Sistema de Crédito (Vuelto como Crédito)
           </h3>
 
-          <div>
+          <div className="animate-zoom-in duration-normal">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Mínimo de vuelto para dar como crédito
             </label>
@@ -117,8 +117,8 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
           </div>
         </div>
 
-        <div className="md:col-span-2">
-          <Button variant="primary" onClick={onSave} loading={loading}>
+        <div className="md:col-span-2 animate-fade-up duration-slow">
+          <Button variant="primary" onClick={onSave} loading={loading} className="animate-zoom-in duration-light-slow">
             Guardar Configuración
           </Button>
         </div>

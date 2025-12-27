@@ -17,7 +17,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <div className="flex flex-col">
+        <div className="flex flex-col animate-fade-up duration-fast">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Tipo:
           </label>
@@ -41,7 +41,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
           </select>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col animate-fade-down duration-fast">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Severidad:
           </label>
@@ -61,7 +61,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
           </select>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col animate-zoom-in duration-normal">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Estado:
           </label>
@@ -76,7 +76,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
           </select>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col animate-fade-right duration-normal">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Desde:
           </label>
@@ -88,7 +88,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
           />
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col animate-fade-left duration-normal">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Hasta:
           </label>

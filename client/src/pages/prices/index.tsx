@@ -81,18 +81,18 @@ const PriceImportPage: React.FC = () => {
     <>
       <div className="p-6 space-y-6">
         {/* Header */}
-        <div>
+        <div className="animate-fade-down duration-fast">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
             Importar Precios (OCR)
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">
+          <p className="text-gray-500 dark:text-gray-400 mt-1 animate-fade-up duration-normal">
             Extrae precios de listas de proveedores (PDF/Excel) y actualiza productos
           </p>
         </div>
 
         {/* Upload Section */}
-        <Card className="p-6">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <Card className="p-6 animate-fade-up duration-normal">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 animate-fade-right duration-fast">
             1. Subir Lista de Precios
           </h2>
 
@@ -113,7 +113,7 @@ const PriceImportPage: React.FC = () => {
 
         {/* Preview Section */}
         {currentBatch && batchItems.length > 0 && (
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden animate-zoom-in duration-normal">
             <PricePreviewTable
               preview={{
                 items: batchItems.map(item => ({

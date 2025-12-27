@@ -19,16 +19,16 @@ const QRModal: React.FC<QRModalProps> = ({ isOpen, onClose, customer }) => {
       size="sm"
     >
       <div className="text-center space-y-4">
-        <div className="w-48 h-48 bg-gray-100 dark:bg-gray-800 rounded-sm mx-auto flex items-center justify-center">
-          <div className="text-6xl">📱</div>
+        <div className="w-48 h-48 bg-gray-100 dark:bg-gray-800 rounded-sm mx-auto flex items-center justify-center animate-zoom-in duration-normal">
+          <div className="text-6xl animate-flip-up duration-light-slow">📱</div>
         </div>
-        <p className="font-medium text-gray-900 dark:text-white">
+        <p className="font-medium text-gray-900 dark:text-white animate-fade-up duration-fast">
           {`${customer.first_name || ''} ${customer.last_name || ''}`.trim()}
         </p>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 animate-fade-up duration-normal">
           Escanea este código en el POS para identificar al cliente
         </p>
-        <Button variant="secondary" fullWidth>
+        <Button variant="secondary" fullWidth className="animate-fade-up duration-slow">
           Imprimir QR
         </Button>
       </div>

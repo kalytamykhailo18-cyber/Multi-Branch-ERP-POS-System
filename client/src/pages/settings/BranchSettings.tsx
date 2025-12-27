@@ -23,10 +23,10 @@ const BranchSettings: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Configuración de Sucursal</h2>
+    <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6 animate-fade-up duration-normal">
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-right duration-fast">Configuración de Sucursal</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col">
+        <div className="flex flex-col animate-fade-left duration-normal">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Pie de Recibo:</label>
           <textarea
             name="receipt_footer"
@@ -38,7 +38,7 @@ const BranchSettings: React.FC = () => {
           />
         </div>
 
-        <label className="flex items-center gap-2 cursor-pointer">
+        <label className="flex items-center gap-2 cursor-pointer animate-fade-right duration-light-slow">
           <input
             type="checkbox"
             name="auto_print_receipt"
@@ -49,7 +49,7 @@ const BranchSettings: React.FC = () => {
           <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Imprimir recibo automáticamente</span>
         </label>
 
-        <label className="flex items-center gap-2 cursor-pointer">
+        <label className="flex items-center gap-2 cursor-pointer animate-fade-up duration-normal">
           <input
             type="checkbox"
             name="require_customer"
@@ -60,7 +60,7 @@ const BranchSettings: React.FC = () => {
           <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Requiere seleccionar cliente</span>
         </label>
 
-        <label className="flex items-center gap-2 cursor-pointer">
+        <label className="flex items-center gap-2 cursor-pointer animate-fade-left duration-fast">
           <input
             type="checkbox"
             name="enable_discounts"
@@ -72,7 +72,7 @@ const BranchSettings: React.FC = () => {
         </label>
 
         {settings.enable_discounts && (
-          <div className="flex flex-col">
+          <div className="flex flex-col animate-zoom-in duration-fast">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Descuento máximo (%):</label>
             <input
               type="number"
@@ -88,7 +88,7 @@ const BranchSettings: React.FC = () => {
 
         <button
           type="submit"
-          className="px-6 py-3 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium"
+          className="px-6 py-3 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium animate-flip-up duration-normal"
         >
           Guardar Configuración
         </button>

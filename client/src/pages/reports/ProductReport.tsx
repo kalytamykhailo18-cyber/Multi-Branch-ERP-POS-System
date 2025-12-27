@@ -24,9 +24,9 @@ const ProductReport: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6 animate-fade-down duration-fast">
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex flex-col flex-1">
+          <div className="flex flex-col flex-1 animate-fade-right duration-fast">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Desde:
             </label>
@@ -37,7 +37,7 @@ const ProductReport: React.FC = () => {
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
-          <div className="flex flex-col flex-1">
+          <div className="flex flex-col flex-1 animate-fade-left duration-normal">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Hasta:
             </label>
@@ -52,19 +52,19 @@ const ProductReport: React.FC = () => {
       </div>
 
       {loading ? (
-        <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-8 text-center">
+        <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-8 text-center animate-fade-up duration-normal">
           <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-300 border-t-primary-600"></div>
           <p className="mt-4 text-gray-600 dark:text-gray-400">Cargando...</p>
         </div>
       ) : error ? (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-sm p-4">
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-sm p-4 animate-fade-up duration-fast">
           <p className="text-red-800 dark:text-red-200">Error: {error}</p>
         </div>
       ) : productReport ? (
-        <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md overflow-hidden animate-fade-up duration-normal">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-              <thead className="bg-gray-50 dark:bg-gray-700">
+              <thead className="bg-gray-50 dark:bg-gray-700 animate-flip-down duration-fast">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Producto</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">SKU</th>
@@ -74,8 +74,8 @@ const ProductReport: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                {productReport.products?.map((product: any) => (
-                  <tr key={product.product_id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                {productReport.products?.map((product: any, idx: number) => (
+                  <tr key={product.product_id} className={`hover:bg-gray-50 dark:hover:bg-gray-700 animate-fade-left ${idx % 4 === 0 ? 'duration-very-fast' : idx % 4 === 1 ? 'duration-fast' : idx % 4 === 2 ? 'duration-normal' : 'duration-light-slow'}`}>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{product.name}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">{product.sku}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{product.total_quantity}</td>

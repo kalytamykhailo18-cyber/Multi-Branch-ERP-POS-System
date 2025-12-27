@@ -31,9 +31,9 @@ export const CustomerDetailModal: React.FC<CustomerDetailModalProps> = ({
       title="Detalle del Cliente"
       size="md"
     >
-      <div className="space-y-6">
+      <div className="space-y-6 animate-fade-up duration-normal">
         {/* Customer info */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 animate-zoom-in duration-fast">
           <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
             <span className="text-primary-600 dark:text-primary-400 font-bold text-xl">
               {customer.first_name?.[0]}{customer.last_name?.[0]}
@@ -53,13 +53,13 @@ export const CustomerDetailModal: React.FC<CustomerDetailModalProps> = ({
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-primary-50 dark:bg-primary-900/20 rounded-sm text-center">
+          <div className="p-4 bg-primary-50 dark:bg-primary-900/20 rounded-sm text-center animate-fade-right duration-normal">
             <p className="text-2xl font-bold text-primary-600 dark:text-primary-400">
               {customer.loyalty_points || 0}
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400">Puntos</p>
           </div>
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm text-center">
+          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm text-center animate-fade-left duration-normal">
             <p className={`text-2xl font-bold ${
               Number(customer.credit_balance || 0) < 0 ? 'text-danger-500' : 'text-gray-900 dark:text-white'
             }`}>

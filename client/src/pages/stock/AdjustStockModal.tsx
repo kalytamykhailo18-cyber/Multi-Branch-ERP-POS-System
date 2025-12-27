@@ -40,7 +40,7 @@ const AdjustStockModal: React.FC<AdjustStockModalProps> = ({
     >
       <div className="space-y-4">
         {selectedItem && (
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm">
+          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm animate-fade-down duration-fast">
             <p className="font-medium text-gray-900 dark:text-white">
               {selectedItem.product_name}
             </p>
@@ -50,7 +50,7 @@ const AdjustStockModal: React.FC<AdjustStockModalProps> = ({
           </div>
         )}
 
-        <div>
+        <div className="animate-fade-up duration-fast">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Tipo de Ajuste
           </label>
@@ -65,15 +65,17 @@ const AdjustStockModal: React.FC<AdjustStockModalProps> = ({
           </select>
         </div>
 
-        <Input
-          label={adjustmentData.type === 'count' ? 'Cantidad contada' : 'Cantidad a ajustar'}
-          type="number"
-          value={adjustmentData.quantity}
-          onChange={(e) => onDataChange({ ...adjustmentData, quantity: e.target.value })}
-          placeholder={adjustmentData.type === 'count' ? 'Stock real' : '+10 o -5'}
-        />
+        <div className="animate-fade-up duration-normal">
+          <Input
+            label={adjustmentData.type === 'count' ? 'Cantidad contada' : 'Cantidad a ajustar'}
+            type="number"
+            value={adjustmentData.quantity}
+            onChange={(e) => onDataChange({ ...adjustmentData, quantity: e.target.value })}
+            placeholder={adjustmentData.type === 'count' ? 'Stock real' : '+10 o -5'}
+          />
+        </div>
 
-        <div>
+        <div className="animate-fade-up duration-light-slow">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Razón
           </label>
@@ -86,7 +88,7 @@ const AdjustStockModal: React.FC<AdjustStockModalProps> = ({
           />
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-3 animate-fade-up duration-slow">
           <Button variant="secondary" fullWidth onClick={onClose}>
             Cancelar
           </Button>

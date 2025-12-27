@@ -20,9 +20,9 @@ const ProductsGrid: React.FC<ProductsGridProps> = ({
   formatCurrency,
 }) => {
   return (
-    <div className="flex-1 flex flex-col p-4 overflow-hidden">
+    <div className="flex-1 flex flex-col p-4 overflow-hidden animate-fade-right duration-normal">
       {/* Search Bar */}
-      <div className="mb-4">
+      <div className="mb-4 animate-fade-down duration-fast">
         <Input
           placeholder="Buscar productos por nombre, SKU o código de barras..."
           value={searchQuery}
@@ -47,19 +47,19 @@ const ProductsGrid: React.FC<ProductsGridProps> = ({
       {/* Products Grid */}
       <div className="flex-1 overflow-y-auto">
         {loading ? (
-          <div className="flex items-center justify-center h-full">
+          <div className="flex items-center justify-center h-full animate-zoom-in duration-fast">
             <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" />
           </div>
         ) : products.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-gray-500">
-            <svg className="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="flex flex-col items-center justify-center h-full text-gray-500 animate-fade-up duration-normal">
+            <svg className="w-16 h-16 mb-4 opacity-50 animate-zoom-in duration-light-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
             </svg>
             <p>{searchQuery ? 'No se encontraron productos' : 'No hay productos disponibles'}</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
-            {products.map((product, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 animate-fade-up duration-normal">
+            {products.map((product) => (
               <button
                 key={product.id}
                 onClick={() => onProductClick(product as Product)}
@@ -67,12 +67,11 @@ const ProductsGrid: React.FC<ProductsGridProps> = ({
                 className={`
                   p-4 bg-white dark:bg-gray-800 rounded-sm border border-gray-200 dark:border-gray-700
                   text-left transition-all duration-150 hover:shadow-lg hover:scale-105
-                  animate-slide-up disabled:opacity-50 disabled:cursor-not-allowed
+                  animate-zoom-in duration-fast disabled:opacity-50 disabled:cursor-not-allowed
                   ${product.stock_quantity !== undefined && product.stock_quantity <= 0 ? 'bg-gray-100 dark:bg-gray-900' : ''}
                 `}
-                style={{ animationDelay: `${Math.min(index, 20) * 30}ms` }}
               >
-                <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-sm mb-3 flex items-center justify-center">
+                <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-sm mb-3 flex items-center justify-center animate-fade-up duration-normal">
                   {product.image_url ? (
                     <img
                       src={product.image_url}
@@ -85,10 +84,10 @@ const ProductsGrid: React.FC<ProductsGridProps> = ({
                     </svg>
                   )}
                 </div>
-                <h3 className="font-medium text-gray-900 dark:text-white text-sm line-clamp-2 mb-1">
+                <h3 className="font-medium text-gray-900 dark:text-white text-sm line-clamp-2 mb-1 animate-fade-up duration-light-slow">
                   {product.name}
                 </h3>
-                <p className="text-primary-600 dark:text-primary-400 font-bold">
+                <p className="text-primary-600 dark:text-primary-400 font-bold animate-fade-up duration-slow">
                   {formatCurrency(Number(product.selling_price))}
                 </p>
                 {product.stock_quantity !== undefined && (
