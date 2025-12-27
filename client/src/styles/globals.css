@@ -15,22 +15,32 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
 
-  /* Scrollbar styling */
+  /* Scrollbar styling - Blue compact style */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gray-200 dark:bg-gray-800 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+    @apply bg-blue-500 dark:bg-blue-600 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400 dark:bg-gray-500;
+    @apply bg-blue-600 dark:bg-blue-500;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #e5e7eb;
+  }
+
+  .dark * {
+    scrollbar-color: #2563eb #1f2937;
   }
 }
 
