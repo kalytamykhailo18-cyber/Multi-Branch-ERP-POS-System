@@ -15,7 +15,7 @@ module.exports = {
       registers.push({
         id: uuidv4(),
         branch_id: branch.id,
-        code: `${branch.code}-R1`,
+        register_number: 1,
         name: `Caja 1 - ${branch.name}`,
         is_active: true,
         created_at: new Date(),
@@ -25,7 +25,7 @@ module.exports = {
       registers.push({
         id: uuidv4(),
         branch_id: branch.id,
-        code: `${branch.code}-R2`,
+        register_number: 2,
         name: `Caja 2 - ${branch.name}`,
         is_active: true,
         created_at: new Date(),

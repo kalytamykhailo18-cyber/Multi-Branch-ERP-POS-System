@@ -31,7 +31,6 @@ module.exports = {
           branch_id: branch.id,
           quantity: quantity,
           reserved_quantity: 0,
-          created_at: new Date(),
           updated_at: new Date()
         });
       });
