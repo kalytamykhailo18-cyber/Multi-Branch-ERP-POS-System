@@ -19,7 +19,7 @@ const QRModal: React.FC<QRModalProps> = ({ isOpen, onClose, customer }) => {
       size="sm"
     >
       <div className="text-center space-y-4">
-        <div className="w-48 h-48 bg-gray-100 dark:bg-gray-800 rounded-xl mx-auto flex items-center justify-center">
+        <div className="w-48 h-48 bg-gray-100 dark:bg-gray-800 rounded-sm mx-auto flex items-center justify-center">
           <div className="text-6xl">📱</div>
         </div>
         <p className="font-medium text-gray-900 dark:text-white">

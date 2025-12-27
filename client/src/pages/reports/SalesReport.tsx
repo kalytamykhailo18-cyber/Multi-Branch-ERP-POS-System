@@ -28,7 +28,7 @@ const SalesReport: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col flex-1">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -38,7 +38,7 @@ const SalesReport: React.FC = () => {
               type="date"
               value={filters.start_date}
               onChange={(e) => setFilters({ ...filters, start_date: e.target.value })}
-              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
           <div className="flex flex-col flex-1">
@@ -49,7 +49,7 @@ const SalesReport: React.FC = () => {
               type="date"
               value={filters.end_date}
               onChange={(e) => setFilters({ ...filters, end_date: e.target.value })}
-              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
           <div className="flex flex-col flex-1">
@@ -59,7 +59,7 @@ const SalesReport: React.FC = () => {
             <select
               value={filters.group_by}
               onChange={(e) => setFilters({ ...filters, group_by: e.target.value as 'hour' | 'day' | 'week' | 'month' })}
-              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="hour">Hora</option>
               <option value="day">Día</option>
@@ -71,17 +71,17 @@ const SalesReport: React.FC = () => {
       </div>
 
       {loading ? (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+        <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-8 text-center">
           <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-300 border-t-primary-600"></div>
           <p className="mt-4 text-gray-600 dark:text-gray-400">Cargando...</p>
         </div>
       ) : error ? (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-sm p-4">
           <p className="text-red-800 dark:text-red-200">Error: {error}</p>
         </div>
       ) : salesReport ? (
         <>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Totales</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
@@ -99,7 +99,7 @@ const SalesReport: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md overflow-hidden">
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead className="bg-gray-50 dark:bg-gray-700">

@@ -27,7 +27,7 @@ const GlobalLoader: React.FC = () => {
       {/* Loading message overlay (optional) */}
       {loadingMessage && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-[9998]">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl px-8 py-6 flex flex-col items-center gap-4 animate-zoom-in">
+          <div className="bg-white dark:bg-gray-800 rounded-sm shadow-xl px-8 py-6 flex flex-col items-center gap-4 animate-zoom-in">
             <div className="relative">
               {/* Spinner */}
               <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" />

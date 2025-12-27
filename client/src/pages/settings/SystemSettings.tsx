@@ -29,10 +29,10 @@ const SystemSettings: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Configuración del Sistema</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-sm p-6">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Información de la Empresa</h3>
             <div className="space-y-4">
               <div className="flex flex-col">
@@ -42,7 +42,7 @@ const SystemSettings: React.FC = () => {
                   name="company_name"
                   value={settings.company_name}
                   onChange={handleChange}
-                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
               <div className="flex flex-col">
@@ -52,7 +52,7 @@ const SystemSettings: React.FC = () => {
                   name="tax_id"
                   value={settings.tax_id}
                   onChange={handleChange}
-                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
               <div className="flex flex-col">
@@ -62,7 +62,7 @@ const SystemSettings: React.FC = () => {
                   name="address"
                   value={settings.address}
                   onChange={handleChange}
-                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
               <div className="flex flex-col">
@@ -72,7 +72,7 @@ const SystemSettings: React.FC = () => {
                   name="phone"
                   value={settings.phone}
                   onChange={handleChange}
-                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
               <div className="flex flex-col">
@@ -82,13 +82,13 @@ const SystemSettings: React.FC = () => {
                   name="email"
                   value={settings.email}
                   onChange={handleChange}
-                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
             </div>
           </section>
 
-          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-sm p-6">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Configuración Regional</h3>
             <div className="space-y-4">
               <div className="flex flex-col">
@@ -97,7 +97,7 @@ const SystemSettings: React.FC = () => {
                   name="currency"
                   value={settings.currency}
                   onChange={handleChange}
-                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 >
                   <option value="ARS">Peso Argentino (ARS)</option>
                   <option value="USD">Dólar (USD)</option>
@@ -109,7 +109,7 @@ const SystemSettings: React.FC = () => {
                   name="timezone"
                   value={settings.timezone}
                   onChange={handleChange}
-                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 >
                   <option value="America/Argentina/Buenos_Aires">Buenos Aires</option>
                   <option value="America/Argentina/Cordoba">Córdoba</option>
@@ -121,7 +121,7 @@ const SystemSettings: React.FC = () => {
                   name="date_format"
                   value={settings.date_format}
                   onChange={handleChange}
-                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 >
                   <option value="DD/MM/YYYY">DD/MM/YYYY</option>
                   <option value="MM/DD/YYYY">MM/DD/YYYY</option>
@@ -130,7 +130,7 @@ const SystemSettings: React.FC = () => {
             </div>
           </section>
 
-          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-sm p-6">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Facturación (FactuHoy)</h3>
             <div className="space-y-4">
               <label className="flex items-center gap-2 cursor-pointer">
@@ -152,7 +152,7 @@ const SystemSettings: React.FC = () => {
                     value={settings.factuhoy_api_key}
                     onChange={handleChange}
                     placeholder="Ingrese su API Key"
-                    className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
               )}
@@ -161,7 +161,7 @@ const SystemSettings: React.FC = () => {
 
           <button
             type="submit"
-            className="px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium"
+            className="px-6 py-3 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium"
           >
             Guardar Configuración
           </button>

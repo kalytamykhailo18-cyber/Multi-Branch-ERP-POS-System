@@ -80,7 +80,7 @@ export const CustomerFormModal: React.FC<CustomerFormModalProps> = ({
               name="document_type"
               value={formData.document_type}
               onChange={onChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="DNI">DNI</option>
               <option value="CUIT">CUIT</option>
@@ -103,7 +103,7 @@ export const CustomerFormModal: React.FC<CustomerFormModalProps> = ({
               name="tax_condition"
               value={formData.tax_condition}
               onChange={onChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="CONSUMIDOR_FINAL">Consumidor Final</option>
               <option value="RESPONSABLE_INSCRIPTO">Responsable Inscripto</option>
@@ -154,7 +154,7 @@ export const CustomerFormModal: React.FC<CustomerFormModalProps> = ({
             value={formData.notes}
             onChange={onChange}
             rows={2}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           />
         </div>
 

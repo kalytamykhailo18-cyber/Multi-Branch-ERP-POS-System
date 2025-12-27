@@ -23,7 +23,7 @@ const CashDiscrepancies: React.FC<CashDiscrepanciesProps> = ({ discrepancies }) 
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
       <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Discrepancias de Efectivo</h2>
       {discrepancies && discrepancies.length > 0 ? (
         <div className="overflow-x-auto">

@@ -42,7 +42,7 @@ export const CustomersTable: React.FC<CustomersTableProps> = ({
         <p>No hay clientes registrados</p>
         <button
           onClick={onCreate}
-          className="mt-4 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600"
+          className="mt-4 px-4 py-2 bg-primary-500 text-white rounded-sm hover:bg-primary-600"
         >
           Crear primer cliente
         </button>

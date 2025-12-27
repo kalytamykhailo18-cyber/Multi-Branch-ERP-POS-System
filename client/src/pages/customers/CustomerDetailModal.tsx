@@ -53,13 +53,13 @@ export const CustomerDetailModal: React.FC<CustomerDetailModalProps> = ({
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg text-center">
+          <div className="p-4 bg-primary-50 dark:bg-primary-900/20 rounded-sm text-center">
             <p className="text-2xl font-bold text-primary-600 dark:text-primary-400">
               {customer.loyalty_points || 0}
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400">Puntos</p>
           </div>
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-center">
+          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm text-center">
             <p className={`text-2xl font-bold ${
               Number(customer.credit_balance || 0) < 0 ? 'text-danger-500' : 'text-gray-900 dark:text-white'
             }`}>

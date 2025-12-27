@@ -43,7 +43,7 @@ const AlertsPage: React.FC = () => {
 
   return (
     <div className="p-6 space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Alertas</h1>
@@ -51,7 +51,7 @@ const AlertsPage: React.FC = () => {
           </div>
           <button
             onClick={handleMarkAllAsRead}
-            className="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium"
+            className="px-4 py-2 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium"
           >
             Marcar Todas como Leídas
           </button>

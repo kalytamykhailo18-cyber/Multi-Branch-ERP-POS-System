@@ -65,19 +65,19 @@ const ProductsGrid: React.FC<ProductsGridProps> = ({
                 onClick={() => onProductClick(product as Product)}
                 disabled={product.stock_quantity !== undefined && product.stock_quantity <= 0}
                 className={`
-                  p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700
+                  p-4 bg-white dark:bg-gray-800 rounded-sm border border-gray-200 dark:border-gray-700
                   text-left transition-all duration-150 hover:shadow-lg hover:scale-105
                   animate-slide-up disabled:opacity-50 disabled:cursor-not-allowed
                   ${product.stock_quantity !== undefined && product.stock_quantity <= 0 ? 'bg-gray-100 dark:bg-gray-900' : ''}
                 `}
                 style={{ animationDelay: `${Math.min(index, 20) * 30}ms` }}
               >
-                <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-lg mb-3 flex items-center justify-center">
+                <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-sm mb-3 flex items-center justify-center">
                   {product.image_url ? (
                     <img
                       src={product.image_url}
                       alt={product.name}
-                      className="w-full h-full object-cover rounded-lg"
+                      className="w-full h-full object-cover rounded-sm"
                     />
                   ) : (
                     <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

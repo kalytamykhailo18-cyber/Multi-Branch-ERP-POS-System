@@ -23,7 +23,7 @@ const BranchSettings: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Configuración de Sucursal</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex flex-col">
@@ -34,7 +34,7 @@ const BranchSettings: React.FC = () => {
             onChange={handleChange}
             rows={3}
             placeholder="Texto que aparece al final del recibo..."
-            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
           />
         </div>
 
@@ -81,14 +81,14 @@ const BranchSettings: React.FC = () => {
               onChange={handleChange}
               min="0"
               max="100"
-              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
         )}
 
         <button
           type="submit"
-          className="px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium"
+          className="px-6 py-3 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors font-medium"
         >
           Guardar Configuración
         </button>

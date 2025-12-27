@@ -9,11 +9,11 @@ const ReportsPage: React.FC = () => {
 
   return (
     <div className="p-6 space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Reportes</h1>
       </div>
 
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md">
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md">
         <div className="flex flex-col sm:flex-row border-b border-gray-200 dark:border-gray-700">
           <button
             className={`px-6 py-3 text-sm font-medium transition-colors ${

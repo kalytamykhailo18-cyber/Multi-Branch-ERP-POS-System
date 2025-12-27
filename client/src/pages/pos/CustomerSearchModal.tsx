@@ -49,7 +49,7 @@ const CustomerSearchModal: React.FC<CustomerSearchModalProps> = ({
                 <button
                   key={c.id}
                   onClick={() => onSelectCustomer(c)}
-                  className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-left"
+                  className="w-full flex items-center gap-3 p-3 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-left"
                 >
                   <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
                     <span className="text-primary-600 dark:text-primary-400 font-semibold text-sm">

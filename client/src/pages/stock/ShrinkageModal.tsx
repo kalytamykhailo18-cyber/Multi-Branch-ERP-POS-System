@@ -39,7 +39,7 @@ const ShrinkageModal: React.FC<ShrinkageModalProps> = ({
       size="sm"
     >
       <div className="space-y-4">
-        <div className="p-4 bg-warning-50 dark:bg-warning-900/20 rounded-lg">
+        <div className="p-4 bg-warning-50 dark:bg-warning-900/20 rounded-sm">
           <p className="text-sm text-warning-800 dark:text-warning-300">
             Registra la merma de productos por pérdida de peso, polvo o porcionado.
             Este ajuste es rápido y no requiere aprobación.
@@ -47,7 +47,7 @@ const ShrinkageModal: React.FC<ShrinkageModalProps> = ({
         </div>
 
         {selectedItem ? (
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm">
             <p className="font-medium text-gray-900 dark:text-white">
               {selectedItem.product_name}
             </p>
@@ -78,7 +78,7 @@ const ShrinkageModal: React.FC<ShrinkageModalProps> = ({
           <select
             value={adjustmentData.reason}
             onChange={(e) => onDataChange({ ...adjustmentData, reason: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700"
           >
             <option value="">Seleccionar razón</option>
             <option value="Merma por polvo">Merma por polvo</option>

@@ -59,7 +59,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                 key={method}
                 onClick={() => onMethodChange(method)}
                 className={`
-                  p-4 rounded-lg border-2 text-center transition-all
+                  p-4 rounded-sm border-2 text-center transition-all
                   ${selectedMethod === method
                     ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
                     : 'border-gray-200 dark:border-gray-700 hover:border-primary-300'}
@@ -96,7 +96,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                   <button
                     key={amount}
                     onClick={() => onCashReceivedChange(String(amount))}
-                    className="py-2 text-sm bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
+                    className="py-2 text-sm bg-gray-100 dark:bg-gray-700 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-600"
                   >
                     {formatCurrency(amount)}
                   </button>
@@ -127,7 +127,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
               {payments.map((payment, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
+                  className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-sm"
                 >
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">

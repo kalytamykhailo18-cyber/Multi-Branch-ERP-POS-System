@@ -34,7 +34,7 @@ const SessionsList: React.FC<SessionsListProps> = ({ sessions }) => {
   return (
     <div>
       {sessions && sessions.length > 0 ? (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md overflow-hidden">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
               <thead className="bg-gray-50 dark:bg-gray-700">
@@ -79,7 +79,7 @@ const SessionsList: React.FC<SessionsListProps> = ({ sessions }) => {
           </div>
         </div>
       ) : (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+        <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-8 text-center">
           <p className="text-gray-600 dark:text-gray-400">No hay cierres de caja</p>
         </div>
       )}

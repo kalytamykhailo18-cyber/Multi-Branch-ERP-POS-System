@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div
-      className={`bg-white dark:bg-gray-800 rounded-xl ${paddings[padding]} ${shadows[shadow]} ${hoverStyles} ${className}`}
+      className={`bg-white dark:bg-gray-800 rounded-sm ${paddings[padding]} ${shadows[shadow]} ${hoverStyles} ${className}`}
       onClick={onClick}
       {...rest}
     >

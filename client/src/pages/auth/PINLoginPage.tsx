@@ -129,7 +129,7 @@ const PINLoginPage: React.FC = () => {
         <Card className="p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-primary-500 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+            <div className="w-16 h-16 bg-primary-500 rounded-sm mx-auto mb-4 flex items-center justify-center">
               <svg
                 className="w-10 h-10 text-white"
                 fill="none"
@@ -154,7 +154,7 @@ const PINLoginPage: React.FC = () => {
 
           {/* Error Message */}
           {error && (
-            <div className="mb-6 p-4 bg-danger-50 dark:bg-danger-900/20 border border-danger-200 dark:border-danger-800 rounded-lg">
+            <div className="mb-6 p-4 bg-danger-50 dark:bg-danger-900/20 border border-danger-200 dark:border-danger-800 rounded-sm">
               <p className="text-sm text-danger-600 dark:text-danger-400 text-center">{error}</p>
             </div>
           )}
@@ -177,7 +177,7 @@ const PINLoginPage: React.FC = () => {
                 className={`
                   w-14 h-16 text-center text-2xl font-bold
                   bg-gray-50 dark:bg-gray-700
-                  border-2 rounded-xl
+                  border-2 rounded-sm
                   focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
                   transition-all duration-200
                   ${digit ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' : 'border-gray-200 dark:border-gray-600'}
@@ -200,7 +200,7 @@ const PINLoginPage: React.FC = () => {
                   h-14 text-xl font-semibold
                   bg-gray-100 dark:bg-gray-700
                   text-gray-900 dark:text-white
-                  rounded-xl
+                  rounded-sm
                   hover:bg-gray-200 dark:hover:bg-gray-600
                   active:scale-95
                   transition-all duration-150
@@ -218,7 +218,7 @@ const PINLoginPage: React.FC = () => {
                 h-14 text-sm font-medium
                 bg-gray-100 dark:bg-gray-700
                 text-gray-600 dark:text-gray-300
-                rounded-xl
+                rounded-sm
                 hover:bg-gray-200 dark:hover:bg-gray-600
                 active:scale-95
                 transition-all duration-150
@@ -234,7 +234,7 @@ const PINLoginPage: React.FC = () => {
                 h-14 text-xl font-semibold
                 bg-gray-100 dark:bg-gray-700
                 text-gray-900 dark:text-white
-                rounded-xl
+                rounded-sm
                 hover:bg-gray-200 dark:hover:bg-gray-600
                 active:scale-95
                 transition-all duration-150
@@ -250,7 +250,7 @@ const PINLoginPage: React.FC = () => {
                 h-14 flex items-center justify-center
                 bg-gray-100 dark:bg-gray-700
                 text-gray-600 dark:text-gray-300
-                rounded-xl
+                rounded-sm
                 hover:bg-gray-200 dark:hover:bg-gray-600
                 active:scale-95
                 transition-all duration-150

@@ -44,7 +44,7 @@ const DashboardPage: React.FC = () => {
 
   return (
     <div className="p-6 space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Dashboard - Vista General</h1>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -54,7 +54,7 @@ const DashboardPage: React.FC = () => {
                 type="date"
                 value={dateRange.start_date}
                 onChange={(e) => handleDateRangeChange(e.target.value, dateRange.end_date)}
-                className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
             </label>
             <label className="flex flex-col">
@@ -63,7 +63,7 @@ const DashboardPage: React.FC = () => {
                 type="date"
                 value={dateRange.end_date}
                 onChange={(e) => handleDateRangeChange(dateRange.start_date, e.target.value)}
-                className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
             </label>
           </div>

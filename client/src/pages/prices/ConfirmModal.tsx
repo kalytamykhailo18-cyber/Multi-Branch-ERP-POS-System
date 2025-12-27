@@ -28,7 +28,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
       size="md"
     >
       <div className="space-y-4">
-        <div className="p-4 bg-warning-50 dark:bg-warning-900/20 rounded-lg">
+        <div className="p-4 bg-warning-50 dark:bg-warning-900/20 rounded-sm">
           <p className="text-sm text-warning-800 dark:text-warning-300">
             Vas a actualizar los precios de <strong>{selectedCount} productos</strong>.
             Esta acción quedará registrada en el historial.

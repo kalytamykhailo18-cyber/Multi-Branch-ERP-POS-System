@@ -66,7 +66,7 @@ const Modal: React.FC<ModalProps> = ({
       {/* Modal container */}
       <div className="flex min-h-full items-center justify-center p-4">
         <div
-          className={`relative w-full ${sizes[size]} bg-white dark:bg-gray-800 rounded-xl shadow-2xl transform transition-all animate-zoom-in`}
+          className={`relative w-full ${sizes[size]} bg-white dark:bg-gray-800 rounded-sm shadow-2xl transform transition-all animate-zoom-in`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -80,7 +80,7 @@ const Modal: React.FC<ModalProps> = ({
               {showCloseButton && (
                 <button
                   onClick={onClose}
-                  className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                  className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm transition-colors"
                 >
                   <FiX className="w-5 h-5" />
                 </button>

@@ -98,13 +98,13 @@ const CustomersGrid: React.FC<CustomersGridProps> = ({
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="text-center p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
+                <div className="text-center p-3 bg-primary-50 dark:bg-primary-900/20 rounded-sm">
                   <p className="text-2xl font-bold text-primary-600 dark:text-primary-400">
                     {customer.loyalty_points.toLocaleString()}
                   </p>
                   <p className="text-xs text-gray-500">Puntos</p>
                 </div>
-                <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-sm">
                   <p className={`text-2xl font-bold ${
                     customer.credit_balance < 0 ? 'text-danger-500' : 'text-green-600 dark:text-green-400'
                   }`}>

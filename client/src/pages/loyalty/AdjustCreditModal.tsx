@@ -39,7 +39,7 @@ const AdjustCreditModal: React.FC<AdjustCreditModalProps> = ({
       size="sm"
     >
       <div className="space-y-4">
-        <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-center">
+        <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm text-center">
           <p className="font-medium text-gray-900 dark:text-white">
             {`${customer.first_name || ''} ${customer.last_name || ''}`.trim()}
           </p>
@@ -57,7 +57,7 @@ const AdjustCreditModal: React.FC<AdjustCreditModalProps> = ({
           <select
             value={creditData.type}
             onChange={(e) => onDataChange({ ...creditData, type: e.target.value as any })}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700"
           >
             <option value="add">Agregar crédito (vuelto)</option>
             <option value="use">Usar crédito</option>

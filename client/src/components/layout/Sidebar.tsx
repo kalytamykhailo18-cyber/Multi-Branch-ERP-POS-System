@@ -160,7 +160,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       {/* Logo */}
       <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center">
+          <div className="w-10 h-10 bg-primary-500 rounded-sm flex items-center justify-center">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
@@ -183,7 +183,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           <div className="relative">
             <button
               onClick={() => setBranchDropdownOpen(!branchDropdownOpen)}
-              className="w-full flex items-center justify-between px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
+              className="w-full flex items-center justify-between px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600"
             >
               <span className="font-medium text-gray-900 dark:text-white">
                 {currentBranch?.name || 'Todas las sucursales'}
@@ -194,7 +194,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             </button>
 
             {branchDropdownOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 z-10">
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-700 rounded-sm shadow-lg border border-gray-200 dark:border-gray-600 z-10">
                 <button
                   onClick={() => handleBranchChange('')}
                   className="w-full px-3 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-600 first:rounded-t-lg"
@@ -228,7 +228,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               onClose();
             }}
             className={`
-              w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
+              w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-sm font-medium
               transition-colors duration-150
               ${isActive(item.path)
                 ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
@@ -253,7 +253,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <div className="relative">
           <button
             onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-            className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="w-full flex items-center gap-3 p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
               <span className="text-primary-600 dark:text-primary-400 font-semibold">
@@ -274,7 +274,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </button>
 
           {userDropdownOpen && (
-            <div className="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600">
+            <div className="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-gray-700 rounded-sm shadow-lg border border-gray-200 dark:border-gray-600">
               <button
                 onClick={() => dispatch(toggleTheme())}
                 className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-600 flex items-center gap-2 rounded-t-lg"

@@ -23,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    const baseStyles = 'block w-full rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-0';
+    const baseStyles = 'block w-full rounded-sm border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-0';
 
     const stateStyles = error
       ? 'border-danger-500 focus:border-danger-500 focus:ring-danger-500/30'

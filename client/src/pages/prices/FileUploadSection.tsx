@@ -35,7 +35,7 @@ export const FileUploadSection: React.FC<FileUploadSectionProps> = ({
         <div
           onClick={() => fileInputRef.current?.click()}
           className={`
-            border-2 border-dashed rounded-xl p-8 text-center cursor-pointer
+            border-2 border-dashed rounded-sm p-8 text-center cursor-pointer
             transition-colors duration-200
             ${selectedFile
               ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/10'
@@ -90,7 +90,7 @@ export const FileUploadSection: React.FC<FileUploadSectionProps> = ({
           <select
             value={selectedSupplier}
             onChange={(e) => onSupplierChange(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700"
           >
             <option value="">Detectar automáticamente</option>
             <option value="sup1">Proveedor 1</option>
@@ -118,7 +118,7 @@ export const FileUploadSection: React.FC<FileUploadSectionProps> = ({
           <select
             value={roundingRule}
             onChange={(e) => onRoundingChange(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700"
           >
             <option value="none">Sin redondeo</option>
             <option value="nearest_10">Redondear a $10</option>

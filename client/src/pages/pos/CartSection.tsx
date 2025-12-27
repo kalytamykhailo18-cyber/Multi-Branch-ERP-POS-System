@@ -69,7 +69,7 @@ const CartSection: React.FC<CartSectionProps> = ({
         ) : (
           <button
             onClick={onAddCustomer}
-            className="w-full flex items-center gap-3 px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors"
+            className="w-full flex items-center gap-3 px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-sm hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors"
           >
             <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -94,7 +94,7 @@ const CartSection: React.FC<CartSectionProps> = ({
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
+                className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-sm"
               >
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-gray-900 dark:text-white truncate">
@@ -109,7 +109,7 @@ const CartSection: React.FC<CartSectionProps> = ({
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => onQuantityChange(item.id, item.quantity - 1)}
-                    className="w-8 h-8 flex items-center justify-center bg-gray-200 dark:bg-gray-600 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500"
+                    className="w-8 h-8 flex items-center justify-center bg-gray-200 dark:bg-gray-600 rounded-sm hover:bg-gray-300 dark:hover:bg-gray-500"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
@@ -120,7 +120,7 @@ const CartSection: React.FC<CartSectionProps> = ({
                   </span>
                   <button
                     onClick={() => onQuantityChange(item.id, item.quantity + 1)}
-                    className="w-8 h-8 flex items-center justify-center bg-gray-200 dark:bg-gray-600 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500"
+                    className="w-8 h-8 flex items-center justify-center bg-gray-200 dark:bg-gray-600 rounded-sm hover:bg-gray-300 dark:hover:bg-gray-500"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />

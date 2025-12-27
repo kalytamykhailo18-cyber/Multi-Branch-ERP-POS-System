@@ -40,7 +40,7 @@ const AdjustStockModal: React.FC<AdjustStockModalProps> = ({
     >
       <div className="space-y-4">
         {selectedItem && (
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-sm">
             <p className="font-medium text-gray-900 dark:text-white">
               {selectedItem.product_name}
             </p>
@@ -57,7 +57,7 @@ const AdjustStockModal: React.FC<AdjustStockModalProps> = ({
           <select
             value={adjustmentData.type}
             onChange={(e) => onDataChange({ ...adjustmentData, type: e.target.value as any })}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700"
           >
             <option value="adjustment">Ajuste manual</option>
             <option value="count">Conteo físico</option>
@@ -81,7 +81,7 @@ const AdjustStockModal: React.FC<AdjustStockModalProps> = ({
             value={adjustmentData.reason}
             onChange={(e) => onDataChange({ ...adjustmentData, reason: e.target.value })}
             rows={2}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700"
             placeholder="Motivo del ajuste..."
           />
         </div>

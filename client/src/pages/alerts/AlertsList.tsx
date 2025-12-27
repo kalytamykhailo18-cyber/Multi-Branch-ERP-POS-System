@@ -61,7 +61,7 @@ const AlertsList: React.FC<AlertsListProps> = ({ alerts, onMarkAsRead, paginatio
             return (
               <div
                 key={alert.id}
-                className={`bg-white dark:bg-gray-800 rounded-lg shadow-md border-l-4 ${colors.border} ${alert.is_read ? 'opacity-75' : ''}`}
+                className={`bg-white dark:bg-gray-800 rounded-sm shadow-md border-l-4 ${colors.border} ${alert.is_read ? 'opacity-75' : ''}`}
               >
                 <div className="p-6">
                   <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -87,7 +87,7 @@ const AlertsList: React.FC<AlertsListProps> = ({ alerts, onMarkAsRead, paginatio
                   {!alert.is_read && (
                     <button
                       onClick={() => onMarkAsRead(alert.id)}
-                      className="mt-4 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors text-sm font-medium"
+                      className="mt-4 px-4 py-2 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors text-sm font-medium"
                     >
                       Marcar como Leída
                     </button>
@@ -98,12 +98,12 @@ const AlertsList: React.FC<AlertsListProps> = ({ alerts, onMarkAsRead, paginatio
           })}
 
           {pagination && pagination.total_pages > 1 && (
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
+            <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-4">
               <div className="flex items-center justify-between gap-4">
                 <button
                   onClick={() => onPageChange(pagination.page - 1)}
                   disabled={pagination.page === 1}
-                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-sm hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   Anterior
                 </button>
@@ -113,7 +113,7 @@ const AlertsList: React.FC<AlertsListProps> = ({ alerts, onMarkAsRead, paginatio
                 <button
                   onClick={() => onPageChange(pagination.page + 1)}
                   disabled={pagination.page === pagination.total_pages}
-                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-sm hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   Siguiente
                 </button>
@@ -122,7 +122,7 @@ const AlertsList: React.FC<AlertsListProps> = ({ alerts, onMarkAsRead, paginatio
           )}
         </>
       ) : (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+        <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-8 text-center">
           <p className="text-gray-600 dark:text-gray-400">No hay alertas</p>
         </div>
       )}

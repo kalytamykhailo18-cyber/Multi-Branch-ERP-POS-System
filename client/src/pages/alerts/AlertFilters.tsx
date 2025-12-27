@@ -15,7 +15,7 @@ interface AlertFiltersProps {
 
 const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-sm shadow-md p-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <div className="flex flex-col">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -24,7 +24,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
           <select
             value={filters.alert_type}
             onChange={(e) => onFilterChange({ alert_type: e.target.value })}
-            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
             <option value="">Todos</option>
             <option value="VOIDED_SALE">Venta Anulada</option>
@@ -48,7 +48,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
           <select
             value={filters.severity}
             onChange={(e) => onFilterChange({ severity: e.target.value })}
-            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
             <option value="">Todas</option>
             <option value="INFO">Info</option>
@@ -68,7 +68,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
           <select
             value={filters.is_read}
             onChange={(e) => onFilterChange({ is_read: e.target.value })}
-            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
             <option value="">Todas</option>
             <option value="false">No Leídas</option>
@@ -84,7 +84,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
             type="date"
             value={filters.start_date}
             onChange={(e) => onFilterChange({ start_date: e.target.value })}
-            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           />
         </div>
 
@@ -96,7 +96,7 @@ const AlertFilters: React.FC<AlertFiltersProps> = ({ filters, onFilterChange }) 
             type="date"
             value={filters.end_date}
             onChange={(e) => onFilterChange({ end_date: e.target.value })}
-            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           />
         </div>
       </div>
