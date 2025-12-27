@@ -15,7 +15,13 @@ export const alertService = {
     page?: number;
     limit?: number;
   }): Promise<PaginatedResponse<Alert>> => {
-    return get<Alert[]>('/alerts', params) as Promise<PaginatedResponse<Alert>>;
+    // Backend expects from_date/to_date, filter empty strings
+    const { start_date, end_date, ...rest } = params || {};
+    const cleanParams = Object.fromEntries(
+      Object.entries({ ...rest, from_date: start_date, to_date: end_date })
+        .filter(([_, v]) => v !== '' && v !== undefined)
+    );
+    return get<Alert[]>('/alerts', cleanParams) as Promise<PaginatedResponse<Alert>>;
   },
 
   /**
@@ -33,14 +39,16 @@ export const alertService = {
     by_severity: Array<{ severity: string; count: number }>;
     by_type: Array<{ alert_type: string; count: number }>;
   }>> => {
-    return get('/alerts/unread-count', branchId ? { branch_id: branchId } : undefined);
+    // Backend uses /alerts/unread endpoint
+    return get('/alerts/unread', branchId ? { branch_id: branchId } : undefined);
   },
 
   /**
    * Mark alert as read
    */
   markAsRead: (id: UUID): Promise<ApiResponse<Alert>> => {
-    return post<Alert>(`/alerts/${id}/read`);
+    // Backend expects alert_ids array at /alerts/mark-read
+    return post<Alert>('/alerts/mark-read', { alert_ids: [id] });
   },
 
   /**
@@ -50,7 +58,7 @@ export const alertService = {
     branch_id?: UUID;
     alert_type?: string;
   }): Promise<ApiResponse<null>> => {
-    return post<null>('/alerts/read-all', params);
+    return post<null>('/alerts/mark-all-read', params);
   },
 
   /**

@@ -46,7 +46,13 @@ export const reportService = {
       average_ticket: number;
     };
   }>> => {
-    return get('/reports/sales', params);
+    // Backend expects from_date/to_date, filter empty strings
+    const { start_date, end_date, ...rest } = params || {};
+    const cleanParams = Object.fromEntries(
+      Object.entries({ ...rest, from_date: start_date, to_date: end_date })
+        .filter(([_, v]) => v !== '' && v !== undefined)
+    );
+    return get('/reports/sales', cleanParams);
   },
 
   /**
@@ -72,7 +78,13 @@ export const reportService = {
       margin_percent: string;
     }>;
   }>> => {
-    return get('/reports/products', params);
+    // Backend expects from_date/to_date, filter empty strings
+    const { start_date, end_date, ...rest } = params || {};
+    const cleanParams = Object.fromEntries(
+      Object.entries({ ...rest, from_date: start_date, to_date: end_date })
+        .filter(([_, v]) => v !== '' && v !== undefined)
+    );
+    return get('/reports/products', cleanParams);
   },
 
   /**
@@ -95,7 +107,13 @@ export const reportService = {
       avg_session_hours: number;
     }>;
   }>> => {
-    return get('/reports/cashiers', params);
+    // Backend expects from_date/to_date, filter empty strings
+    const { start_date, end_date, ...rest } = params || {};
+    const cleanParams = Object.fromEntries(
+      Object.entries({ ...rest, from_date: start_date, to_date: end_date })
+        .filter(([_, v]) => v !== '' && v !== undefined)
+    );
+    return get('/reports/cashiers', cleanParams);
   },
 
   /**
@@ -126,7 +144,11 @@ export const reportService = {
       low_stock_count: number;
     };
   }>> => {
-    return get('/reports/inventory', params);
+    // Filter empty strings to avoid UUID validation errors
+    const cleanParams = Object.fromEntries(
+      Object.entries(params || {}).filter(([_, v]) => v !== '' && v !== undefined)
+    );
+    return get('/reports/inventory', cleanParams);
   },
 };
 

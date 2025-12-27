@@ -112,7 +112,12 @@ export const registerService = {
     page?: number;
     limit?: number;
   }): Promise<PaginatedResponse<RegisterSession>> => {
-    return get<RegisterSession[]>('/registers/sessions', params) as Promise<PaginatedResponse<RegisterSession>>;
+    // Filter empty strings to avoid validation errors
+    const cleanParams = Object.fromEntries(
+      Object.entries(params || {}).filter(([_, v]) => v !== '' && v !== undefined)
+    );
+    // Backend endpoint is /registers/sessions/list
+    return get<RegisterSession[]>('/registers/sessions/list', cleanParams) as Promise<PaginatedResponse<RegisterSession>>;
   },
 
   /**

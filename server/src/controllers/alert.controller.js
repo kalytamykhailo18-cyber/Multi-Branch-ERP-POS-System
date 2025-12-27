@@ -94,7 +94,7 @@ exports.getAll = async (req, res, next) => {
       where,
       include: [
         { model: Branch, as: 'branch', attributes: ['name', 'code'] },
-        { model: User, as: 'read_by_user', attributes: ['first_name', 'last_name'] }
+        { model: User, as: 'reader', attributes: ['first_name', 'last_name'] }
       ],
       order: [['created_at', 'DESC']],
       limit,
@@ -112,7 +112,7 @@ exports.getById = async (req, res, next) => {
     const alert = await Alert.findByPk(req.params.id, {
       include: [
         { model: Branch, as: 'branch' },
-        { model: User, as: 'read_by_user' }
+        { model: User, as: 'reader' }
       ]
     });
     if (!alert) throw new NotFoundError('Alert not found');

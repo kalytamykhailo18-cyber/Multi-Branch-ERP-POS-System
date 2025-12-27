@@ -109,7 +109,7 @@ exports.generateDailyReportData = async (branchId, date) => {
     attributes: [
       'product_id',
       [sequelize.fn('SUM', sequelize.col('quantity')), 'total_quantity'],
-      [sequelize.fn('SUM', sequelize.col('SaleItem.total')), 'total_revenue']
+      [sequelize.fn('SUM', sequelize.col('SaleItem.line_total')), 'total_revenue']
     ],
     include: [
       {
@@ -125,7 +125,7 @@ exports.generateDailyReportData = async (branchId, date) => {
       }
     ],
     group: ['product_id', 'product.id', 'product.name', 'product.sku'],
-    order: [[sequelize.fn('SUM', sequelize.col('SaleItem.total')), 'DESC']],
+    order: [[sequelize.fn('SUM', sequelize.col('SaleItem.line_total')), 'DESC']],
     limit: 10
   });
 
@@ -315,13 +315,13 @@ exports.getOwnerDashboard = async (req, res, next) => {
 // Sales Report
 exports.getSalesReport = async (req, res, next) => {
   try {
-    const { branch_id, start_date, end_date, group_by = 'day' } = req.query;
+    const { branch_id, from_date, to_date, group_by = 'day' } = req.query;
 
     const where = { status: 'COMPLETED' };
     if (branch_id) where.branch_id = branch_id;
 
-    const endDate = end_date ? new Date(end_date) : new Date();
-    const startDate = start_date ? new Date(start_date) : new Date(endDate.getTime() - 30 * 24 * 60 * 60 * 1000);
+    const endDate = to_date ? new Date(to_date) : new Date();
+    const startDate = from_date ? new Date(from_date) : new Date(endDate.getTime() - 30 * 24 * 60 * 60 * 1000);
     where.created_at = { [Op.between]: [startDate, endDate] };
 
     let groupByClause;
@@ -389,10 +389,10 @@ exports.getSalesReport = async (req, res, next) => {
 // Product Performance Report
 exports.getProductReport = async (req, res, next) => {
   try {
-    const { branch_id, category_id, start_date, end_date, limit = 50 } = req.query;
+    const { branch_id, category_id, from_date, to_date, limit = 50 } = req.query;
 
-    const endDate = end_date ? new Date(end_date) : new Date();
-    const startDate = start_date ? new Date(start_date) : new Date(endDate.getTime() - 30 * 24 * 60 * 60 * 1000);
+    const endDate = to_date ? new Date(to_date) : new Date();
+    const startDate = from_date ? new Date(from_date) : new Date(endDate.getTime() - 30 * 24 * 60 * 60 * 1000);
 
     const saleWhere = {
       status: 'COMPLETED',
@@ -407,7 +407,7 @@ exports.getProductReport = async (req, res, next) => {
       attributes: [
         'product_id',
         [sequelize.fn('SUM', sequelize.col('quantity')), 'total_quantity'],
-        [sequelize.fn('SUM', sequelize.col('SaleItem.total')), 'total_revenue'],
+        [sequelize.fn('SUM', sequelize.col('SaleItem.line_total')), 'total_revenue'],
         [sequelize.fn('COUNT', sequelize.literal('DISTINCT sale_id')), 'transaction_count'],
         [sequelize.fn('AVG', sequelize.col('unit_price')), 'avg_price']
       ],
@@ -427,7 +427,7 @@ exports.getProductReport = async (req, res, next) => {
         }
       ],
       group: ['product_id', 'product.id', 'product.name', 'product.sku', 'product.cost_price', 'product.selling_price', 'product.category.id', 'product.category.name'],
-      order: [[sequelize.fn('SUM', sequelize.col('SaleItem.total')), 'DESC']],
+      order: [[sequelize.fn('SUM', sequelize.col('SaleItem.line_total')), 'DESC']],
       limit: parseInt(limit)
     });
 
@@ -463,10 +463,10 @@ exports.getProductReport = async (req, res, next) => {
 // Cashier Performance Report
 exports.getCashierReport = async (req, res, next) => {
   try {
-    const { branch_id, start_date, end_date } = req.query;
+    const { branch_id, from_date, to_date } = req.query;
 
-    const endDate = end_date ? new Date(end_date) : new Date();
-    const startDate = start_date ? new Date(start_date) : new Date(endDate.getTime() - 30 * 24 * 60 * 60 * 1000);
+    const endDate = to_date ? new Date(to_date) : new Date();
+    const startDate = from_date ? new Date(from_date) : new Date(endDate.getTime() - 30 * 24 * 60 * 60 * 1000);
 
     const saleWhere = {
       status: 'COMPLETED',
@@ -474,20 +474,21 @@ exports.getCashierReport = async (req, res, next) => {
     };
     if (branch_id) saleWhere.branch_id = branch_id;
 
+    // Sale model uses created_by with alias 'creator' (not cashier_id)
     const cashierPerformance = await Sale.findAll({
       where: saleWhere,
       attributes: [
-        'cashier_id',
+        'created_by',
         [sequelize.fn('COUNT', sequelize.col('Sale.id')), 'total_sales'],
         [sequelize.fn('SUM', sequelize.col('total_amount')), 'total_revenue'],
         [sequelize.fn('AVG', sequelize.col('total_amount')), 'average_ticket']
       ],
       include: [{
         model: User,
-        as: 'cashier',
+        as: 'creator',
         attributes: ['first_name', 'last_name']
       }],
-      group: ['cashier_id', 'cashier.id', 'cashier.first_name', 'cashier.last_name'],
+      group: ['created_by', 'creator.id', 'creator.first_name', 'creator.last_name'],
       order: [[sequelize.fn('SUM', sequelize.col('total_amount')), 'DESC']]
     });
 
@@ -497,23 +498,25 @@ exports.getCashierReport = async (req, res, next) => {
     };
     if (branch_id) sessionWhere.branch_id = branch_id;
 
+    // RegisterSession uses opened_by (not cashier_id)
     const sessionData = await RegisterSession.findAll({
       where: sessionWhere,
       attributes: [
-        'cashier_id',
+        'opened_by',
         [sequelize.fn('COUNT', sequelize.col('id')), 'total_sessions'],
         [sequelize.fn('SUM', sequelize.col('discrepancy_cash')), 'total_discrepancy'],
         [sequelize.fn('AVG', sequelize.literal("EXTRACT(EPOCH FROM (closed_at - opened_at)) / 3600")), 'avg_session_hours']
       ],
-      group: ['cashier_id']
+      group: ['opened_by']
     });
 
     // Combine data
     const combined = cashierPerformance.map((c) => {
-      const session = sessionData.find((s) => s.cashier_id === c.cashier_id);
+      // Match session data by created_by (sale creator) to opened_by (session owner)
+      const session = sessionData.find((s) => s.opened_by === c.created_by);
       return {
-        cashier_id: c.cashier_id,
-        name: `${c.cashier?.first_name || ''} ${c.cashier?.last_name || ''}`.trim(),
+        cashier_id: c.created_by,
+        name: `${c.creator?.first_name || ''} ${c.creator?.last_name || ''}`.trim(),
         total_sales: parseInt(c.toJSON().total_sales),
         total_revenue: parseFloat(c.toJSON().total_revenue),
         average_ticket: parseFloat(c.toJSON().average_ticket),
@@ -548,7 +551,7 @@ exports.getInventoryReport = async (req, res, next) => {
         sequelize.where(
           sequelize.col('quantity'),
           Op.lte,
-          sequelize.col('min_stock')
+          sequelize.col('product.minimum_stock')
         )
       ];
     }
@@ -560,7 +563,7 @@ exports.getInventoryReport = async (req, res, next) => {
           model: Product,
           as: 'product',
           where: productWhere,
-          attributes: ['name', 'sku', 'cost_price', 'selling_price'],
+          attributes: ['name', 'sku', 'cost_price', 'selling_price', 'minimum_stock'],
           include: [{ model: Category, as: 'category', attributes: ['name'] }]
         },
         { model: Branch, as: 'branch', attributes: ['name', 'code'] }
@@ -573,6 +576,7 @@ exports.getInventoryReport = async (req, res, next) => {
       const costPrice = parseFloat(s.product?.cost_price) || 0;
       const sellingPrice = parseFloat(s.product?.selling_price) || 0;
       const quantity = parseFloat(s.quantity);
+      const minStock = parseFloat(s.product?.minimum_stock) || 0;
 
       return {
         branch: s.branch?.name,
@@ -581,11 +585,11 @@ exports.getInventoryReport = async (req, res, next) => {
         sku: s.product?.sku,
         category: s.product?.category?.name,
         quantity,
-        min_stock: parseFloat(s.min_stock),
-        max_stock: parseFloat(s.max_stock),
+        min_stock: minStock,
+        max_stock: 0,
         cost_value: quantity * costPrice,
         retail_value: quantity * sellingPrice,
-        is_low: quantity <= parseFloat(s.min_stock)
+        is_low: quantity <= minStock
       };
     });
 

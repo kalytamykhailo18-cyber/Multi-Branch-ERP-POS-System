@@ -11,10 +11,12 @@ const { parsePagination } = require('../utils/helpers');
 exports.getBranchStock = async (req, res, next) => {
   try {
     const { page, limit, offset } = parsePagination(req.query);
-    const { branch_id } = req.params;
+    // Support both :branchId param and branch_id query param
+    const branch_id = req.params.branchId || req.params.branch_id || req.query.branch_id;
     const { low_stock, search, category_id } = req.query;
 
-    const where = { branch_id };
+    const where = {};
+    if (branch_id) where.branch_id = branch_id;
 
     const productWhere = { is_active: true };
     if (category_id) productWhere.category_id = category_id;

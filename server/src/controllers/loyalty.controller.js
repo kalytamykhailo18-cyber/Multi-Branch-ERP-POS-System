@@ -285,7 +285,7 @@ exports.getPointsTransactions = async (req, res, next) => {
           as: 'customer',
           attributes: ['first_name', 'last_name', 'email']
         },
-        { model: User, as: 'created_by_user', attributes: ['first_name', 'last_name'] }
+        { model: User, as: 'creator', attributes: ['first_name', 'last_name'] }
       ],
       order: [['created_at', 'DESC']],
       limit,
@@ -425,7 +425,7 @@ exports.getCreditTransactions = async (req, res, next) => {
           as: 'customer',
           attributes: ['first_name', 'last_name', 'email']
         },
-        { model: User, as: 'created_by_user', attributes: ['first_name', 'last_name'] }
+        { model: User, as: 'creator', attributes: ['first_name', 'last_name'] }
       ],
       order: [['created_at', 'DESC']],
       limit,
