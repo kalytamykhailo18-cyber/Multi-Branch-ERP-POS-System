@@ -7,6 +7,9 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   fullWidth?: boolean;
+  animate?: boolean;
+  animationType?: 'fade-up' | 'fade-down' | 'fade-left' | 'fade-right' | 'zoom-in';
+  animationDuration?: 'very-fast' | 'fast' | 'normal' | 'light-slow' | 'slow';
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -18,6 +21,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       leftIcon,
       rightIcon,
       fullWidth = false,
+      animate = false,
+      animationType = 'fade-up',
+      animationDuration = 'fast',
       className = '',
       ...props
     },
@@ -38,9 +44,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         : 'px-4';
 
     const widthClass = fullWidth ? 'w-full' : '';
+    const animationClass = animate ? `animate-${animationType} duration-${animationDuration}` : '';
 
     return (
-      <div className={`${widthClass} ${className}`}>
+      <div className={`${widthClass} ${animationClass} ${className}`}>
         {label && (
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1.5">
             {label}
@@ -64,7 +71,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error && (
-          <p className="mt-1 text-sm text-danger-500">{error}</p>
+          <p className="mt-1 text-sm text-danger-500 animate-fade-down duration-very-fast">{error}</p>
         )}
         {helperText && !error && (
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{helperText}</p>

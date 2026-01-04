@@ -4,12 +4,12 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-4 px-6">
+    <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-4 px-6 animate-fade-up duration-normal">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p className="text-sm text-gray-600 dark:text-gray-400">
+        <p className="text-sm text-gray-600 dark:text-gray-400 animate-fade-right duration-light-slow">
           © {currentYear} POS Multi. Todos los derechos reservados.
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 animate-fade-left duration-light-slow">
           <a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
             Ayuda
           </a>

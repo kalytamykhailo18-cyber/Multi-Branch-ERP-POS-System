@@ -158,18 +158,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       `}
     >
       {/* Logo */}
-      <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-700 animate-fade-down duration-fast">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary-500 rounded-sm flex items-center justify-center">
+          <div className="w-10 h-10 bg-primary-500 rounded-sm flex items-center justify-center animate-zoom-in duration-normal">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
           </div>
-          <span className="font-bold text-gray-900 dark:text-white">POS Multi</span>
+          <span className="font-bold text-gray-900 dark:text-white animate-fade-right duration-normal">POS Multi</span>
         </div>
         <button
           onClick={onClose}
-          className="lg:hidden p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+          className="lg:hidden p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 animate-fade-left duration-normal"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -179,7 +179,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
       {/* Branch Selector (for owners) */}
       {canAccessAllBranches && availableBranches.length > 1 && (
-        <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+        <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 animate-fade-right duration-light-slow">
           <div className="relative">
             <button
               onClick={() => setBranchDropdownOpen(!branchDropdownOpen)}
@@ -194,7 +194,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             </button>
 
             {branchDropdownOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-700 rounded-sm shadow-lg border border-gray-200 dark:border-gray-600 z-10">
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-700 rounded-sm shadow-lg border border-gray-200 dark:border-gray-600 z-10 animate-fade-down duration-fast">
                 <button
                   onClick={() => handleBranchChange('')}
                   className="w-full px-3 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-600 first:rounded-t-lg"
@@ -219,8 +219,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       )}
 
       {/* Navigation */}
-      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
-        {navigation.map((item) => (
+      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto animate-fade-up duration-normal">
+        {navigation.map((item, index) => (
           <button
             key={item.path}
             onClick={() => {
@@ -229,11 +229,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             }}
             className={`
               w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-sm font-medium
-              transition-colors duration-150
+              transition-colors duration-150 animate-fade-right
               ${isActive(item.path)
                 ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
                 : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}
             `}
+            style={{ animationDelay: `${index * 50}ms`, animationDuration: '400ms' }}
           >
             <span className={isActive(item.path) ? 'text-primary-500' : 'text-gray-400'}>
               {item.icon}
@@ -249,7 +250,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       </nav>
 
       {/* User Info */}
-      <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+      <div className="p-4 border-t border-gray-200 dark:border-gray-700 animate-fade-up duration-light-slow">
         <div className="relative">
           <button
             onClick={() => setUserDropdownOpen(!userDropdownOpen)}
@@ -274,7 +275,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </button>
 
           {userDropdownOpen && (
-            <div className="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-gray-700 rounded-sm shadow-lg border border-gray-200 dark:border-gray-600">
+            <div className="absolute bottom-full left-0 right-0 mb-1 bg-white dark:bg-gray-700 rounded-sm shadow-lg border border-gray-200 dark:border-gray-600 animate-fade-up duration-fast">
               <button
                 onClick={() => dispatch(toggleTheme())}
                 className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-600 flex items-center gap-2 rounded-t-lg"

@@ -6,6 +6,9 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   padding?: 'none' | 'sm' | 'md' | 'lg';
   shadow?: 'none' | 'sm' | 'md' | 'lg';
   hover?: boolean;
+  animate?: boolean;
+  animationType?: 'fade-up' | 'fade-down' | 'fade-left' | 'fade-right' | 'zoom-in' | 'zoom-out' | 'flip-up' | 'flip-down';
+  animationDuration?: 'very-fast' | 'fast' | 'normal' | 'light-slow' | 'slow' | 'very-slow';
 }
 
 const Card: React.FC<CardProps> = ({
@@ -14,6 +17,9 @@ const Card: React.FC<CardProps> = ({
   padding = 'md',
   shadow = 'md',
   hover = false,
+  animate = false,
+  animationType = 'fade-up',
+  animationDuration = 'normal',
   onClick,
   ...rest
 }) => {
@@ -35,9 +41,11 @@ const Card: React.FC<CardProps> = ({
     ? 'cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-200'
     : '';
 
+  const animationClass = animate ? `animate-${animationType} duration-${animationDuration}` : '';
+
   return (
     <div
-      className={`bg-white dark:bg-gray-800 rounded-sm ${paddings[padding]} ${shadows[shadow]} ${hoverStyles} ${className}`}
+      className={`bg-white dark:bg-gray-800 rounded-sm ${paddings[padding]} ${shadows[shadow]} ${hoverStyles} ${animationClass} ${className}`}
       onClick={onClick}
       {...rest}
     >

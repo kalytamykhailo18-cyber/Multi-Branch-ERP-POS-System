@@ -7,6 +7,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
   fullWidth?: boolean;
+  animate?: boolean;
+  animationType?: 'fade-up' | 'fade-down' | 'fade-left' | 'fade-right' | 'zoom-in' | 'zoom-out';
+  animationDuration?: 'very-fast' | 'fast' | 'normal' | 'light-slow' | 'slow';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -17,6 +20,9 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   iconPosition = 'left',
   fullWidth = false,
+  animate = false,
+  animationType = 'zoom-in',
+  animationDuration = 'fast',
   disabled,
   className = '',
   ...props
@@ -40,10 +46,11 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const widthClass = fullWidth ? 'w-full' : '';
+  const animationClass = animate ? `animate-${animationType} duration-${animationDuration}` : '';
 
   return (
     <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${animationClass} ${className}`}
       disabled={disabled || loading}
       {...props}
     >
