@@ -88,11 +88,10 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <tr
               key={product.id}
               className={`hover:bg-gray-50 dark:hover:bg-gray-800/50 animate-fade-up duration-normal`}
-              style={{ animationDelay: `${index * 50}ms` }}
             >
               <td className="px-6 py-4">
                 <div className="flex items-center gap-3">

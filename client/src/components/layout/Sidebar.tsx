@@ -220,7 +220,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
       {/* Navigation */}
       <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto animate-fade-up duration-normal">
-        {navigation.map((item, index) => (
+        {navigation.map((item) => (
           <button
             key={item.path}
             onClick={() => {
@@ -229,12 +229,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             }}
             className={`
               w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-sm font-medium
-              transition-colors duration-150 animate-fade-right
+              transition-colors duration-150 animate-fade-right duration-fast
               ${isActive(item.path)
                 ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
                 : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}
             `}
-            style={{ animationDelay: `${index * 50}ms`, animationDuration: '400ms' }}
           >
             <span className={isActive(item.path) ? 'text-primary-500' : 'text-gray-400'}>
               {item.icon}
